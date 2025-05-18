@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "title": "Weedify",
+      "description": "Weedify is a recipe sharing platform that allows users to create, share, and discover recipes. It features a user-friendly interface, a robust search engine, and a community-driven approach to recipe sharing.",
+      "technologies": ["React Native", "Node.js", "TypeScript", "MariaDB"],
+      "url": "https://github.com/karripar/weedify-frontend"
+    },
+    {
+      "id": 2,
+      "title": "Tataki - Sushi Restaurant",
+      "description": "Tataki is a sushi restaurant website that showcases the menu, location, and contact information. It features a modern design, responsive layout, and easy navigation.",
+      "technologies": ["HTML", "CSS", "TypeScript", "Node.js", "MariaDB"],
+      "url": "https://github.com/Elliriskala/Tataki"
+    }
+  ]
+  
