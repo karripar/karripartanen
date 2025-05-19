@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { Mail } from "lucide-react";
@@ -6,10 +6,14 @@ import Projects from "@/components/Projects";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
 import projects from "../../data/projects.json";
+import Navigation from "@/components/Navigation";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900">
+      <Navigation />
+
+      {/* Background Image */}
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center py-16 px-4">
         <div className="w-[150px] h-[150px] rounded-full overflow-hidden shadow-lg">
@@ -18,12 +22,13 @@ export default function Home() {
             alt="Your profile photo"
             width={150}
             height={150}
+            priority
             className="w-full h-full object-cover rounded-full"
           />
         </div>
 
-        <h1 className="text-4xl font-bold mt-4">Your Name</h1>
-        <p className="text-lg text-gray-500 mt-2">
+        <h1 className="text-4xl font-bold mt-4">Karri Partanen</h1>
+        <p className="text-lg text-gray-400 mt-2">
           Web Developer | ICT Engineer | JavaScript Enthusiast
         </p>
         {/* Social Links */}
@@ -48,7 +53,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="h-100 max-w-3xl mx-auto px-4 py-12">
+      <section className="h-100 max-w-3xl mx-auto px-4 py-12 mb-50">
         <h2 className="text-2xl font-semibold mb-4">About Me</h2>
         <p className="text-gray-100 leading-relaxed whitespace-pre-line text-lg">
           <Typewriter
@@ -73,7 +78,7 @@ export default function Home() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
           <p className="text-gray-100 mb-4">
-            Want to work together or just say hi? Feel free to reach out!
+            Want to work together or just say hi? Feel free to reach out! For privacy reasons, I can provide my phone number or resume upon request.
           </p>
           <a
             href="mailto:Karri.Partanen@metropolia.fi"

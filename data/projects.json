@@ -2,16 +2,29 @@
     {
       "id": 1,
       "title": "Weedify",
+      "solo": false,
       "description": "Weedify is a recipe sharing platform that allows users to create, share, and discover recipes. It features a user-friendly interface, a robust search engine, and a community-driven approach to recipe sharing.",
       "technologies": ["React Native", "Node.js", "TypeScript", "MariaDB"],
-      "url": "https://github.com/karripar/weedify-frontend"
+      "url": "https://github.com/karripar/weedify-frontend",
+      "imageUrl": "/img/weedify.png"
     },
     {
       "id": 2,
+      "title": "MyLens",
+      "solo": true,
+      "description": "MyLens is a social media platform that allows users to share and discover media. It features a clean and modern design, a powerful search engine, and a community-driven approach. The platform enables users to follow, like, comment and save media as favorites.",
+      "technologies": ["React", "Tailwind CSS", "Node.js", "TypeScript", "MariaDB"],
+      "url": "https://github.com/karripar/mylens-frontend",
+      "imageUrl": "/img/mylens.png"
+    },
+    {
+      "id": 3,
       "title": "Tataki - Sushi Restaurant",
-      "description": "Tataki is a sushi restaurant website that showcases the menu, location, and contact information. It features a modern design, responsive layout, and easy navigation.",
+      "solo": false,
+      "description": "Tataki is a sushi restaurant website that showcases modern sushi dishes, offers online ordering, and provides information about the restaurant's history and philosophy. The website is designed to be visually appealing and easy to navigate.",
       "technologies": ["HTML", "CSS", "TypeScript", "Node.js", "MariaDB"],
-      "url": "https://github.com/Elliriskala/Tataki"
+      "url": "https://github.com/Elliriskala/Tataki",
+      "imageUrl": "/img/tataki.png"
     }
   ]
   
