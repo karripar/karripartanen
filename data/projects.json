@@ -1,30 +1,47 @@
 [
-    {
-      "id": 1,
-      "title": "Weedify",
-      "solo": false,
-      "description": "Weedify is a recipe sharing platform that allows users to create, share, and discover recipes. It features a user-friendly interface, a robust search engine, and a community-driven approach to recipe sharing.",
-      "technologies": ["React Native", "Node.js", "TypeScript", "MariaDB"],
-      "url": "https://github.com/karripar/weedify-frontend",
-      "imageUrl": "/img/weedify.png"
+  {
+    "id": 1,
+    "title": {
+      "en": "Weedify",
+      "fi": "Weedify"
     },
-    {
-      "id": 2,
-      "title": "MyLens",
-      "solo": true,
-      "description": "MyLens is a social media platform that allows users to share and discover media. It features a clean and modern design, a powerful search engine, and a community-driven approach. The platform enables users to follow, like, comment and save media as favorites.",
-      "technologies": ["React", "Tailwind CSS", "Node.js", "TypeScript", "MariaDB"],
-      "url": "https://github.com/karripar/mylens-frontend",
-      "imageUrl": "/img/mylens.png"
+    "solo": false,
+    "description": {
+      "en": "Weedify is a recipe sharing platform that allows users to create, share, and discover recipes. It features a user-friendly interface, a robust search engine, and a community-driven approach to recipe sharing. Backend published in Azure.",
+      "fi": "Weedify on reseptien jakamiseen tarkoitettu alusta, jossa käyttäjät voivat luoda, jakaa ja löytää reseptejä. Se tarjoaa käyttäjäystävällisen käyttöliittymän, tehokkaan hakukoneen ja yhteisölähtöisen lähestymistavan. Backend julkaistu Azureen."
     },
-    {
-      "id": 3,
-      "title": "Tataki - Sushi Restaurant",
-      "solo": false,
-      "description": "Tataki is a sushi restaurant website that showcases modern sushi dishes, offers online ordering, and provides information about the restaurant's history and philosophy. The website is designed to be visually appealing and easy to navigate.",
-      "technologies": ["HTML", "CSS", "TypeScript", "Node.js", "MariaDB"],
-      "url": "https://github.com/Elliriskala/Tataki",
-      "imageUrl": "/img/tataki.png"
-    }
-  ]
-  
+    "technologies": ["React Native", "Node.js", "TypeScript", "MariaDB"],
+    "url": "https://github.com/karripar/weedify-frontend",
+    "imageUrl": "img/weedify.png"
+  },
+  {
+    "id": 2,
+    "title": {
+      "en": "MyLens",
+      "fi": "MyLens"
+    },
+    "solo": true,
+    "description": {
+      "en": "MyLens is a social media platform that allows users to share and discover media. It features a clean and modern design, a powerful search engine, and a community-driven approach. The platform enables users to follow, like, comment and save media as favorites. The project served as a preparation for the Weedify project.",
+      "fi": "MyLens on sosiaalisen median alusta, jossa käyttäjät voivat jakaa ja löytää mediaa. Se sisältää modernin käyttöliittymän, tehokkaan hakukoneen ja yhteisöpohjaisen rakenteen. Käyttäjät voivat seurata, tykätä, kommentoida ja tallentaa mediaa suosikkeihin. Projekti toimi valmistautumisena Weedify-projektiin."
+    },
+    "technologies": ["React", "Tailwind CSS", "Node.js", "TypeScript", "MariaDB"],
+    "url": "https://github.com/karripar/mylens-frontend",
+    "imageUrl": "img/mylens.png"
+  },
+  {
+    "id": 3,
+    "title": {
+      "en": "Tataki - Sushi Restaurant",
+      "fi": "Tataki – Sushi-ravintola"
+    },
+    "solo": false,
+    "description": {
+      "en": "Tataki is a sushi restaurant website that showcases modern sushi dishes, offers online ordering, and provides information about the restaurant's history and philosophy. The website is designed to be visually appealing and easy to navigate. Backend published in Azure.",
+      "fi": "Tataki on sushiravintolan verkkosivusto, joka esittelee moderneja sushiruokia, tarjoaa verkkomyynnin ja kertoo ravintolan historiasta ja filosofiasta. Sivusto on visuaalisesti houkutteleva ja helppokäyttöinen. Backend julkaistu Azureen."
+    },
+    "technologies": ["HTML", "CSS", "TypeScript", "Node.js", "MariaDB"],
+    "url": "https://github.com/Elliriskala/Tataki",
+    "imageUrl": "img/tataki.png"
+  }
+]

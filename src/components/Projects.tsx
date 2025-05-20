@@ -1,12 +1,19 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowBigRightDashIcon, User, Users } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type ProjectProps = {
   // Define the structure of each project
-  title: string;
+  title: {
+    en: string;
+    fi: string;
+  };
   solo: boolean;
-  description: string;
+  description: {
+    en: string;
+    fi: string;
+  }
   technologies: string[];
   url: string;
   imageUrl?: string;
@@ -18,10 +25,32 @@ type ProjectsProps = {
 
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  const { language } = useLanguage();
+
+  const textContent = {
+    projects: {
+      en: "Projects",
+      fi: "Projektit",
+    },
+    solo: {
+      en: "Solo",
+      fi: "Yksilö",
+    },
+    team: {
+      en: "Team",
+      fi: "Ryhmä",
+    },
+    viewProject: {
+      en: "View Project",
+      fi: "Näytä projekti",
+    },
+  };
+
+
   return (
-    <section className="py-12 px-4">
+    <section className="py-14 px-4">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-8">Projects</h2>
+        <h2 className="text-2xl font-semibold mb-8 text-gray-800">{textContent.projects[language]}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {projects.map(
             (
@@ -30,12 +59,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             ) => (
               <div
                 key={index}
-                className="bg-blue-700 p-4 rounded-xl shadow hover:shadow-md transition flex flex-col h-full"
+                className="bg-gradient-to-br from-gray-300 via-indigo-500 to-purple-300 p-4 rounded-xl shadow hover:shadow-md transition flex flex-col h-full"
               >
                 {project.imageUrl && (
                   <Image
                     src={project.imageUrl}
-                    alt={project.title}
+                    alt={project.title["en"]}
                     className="rounded-md mb-3 object-cover h-100 w-full"
                     width={400}
                     height={400}
@@ -44,7 +73,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-lg text-white">
-                    {project.title}
+                    {project.title[language]}
                   </h3>
                   <div className="flex items-center text-gray-100 text-md">
                     {project.solo ? (
@@ -52,12 +81,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     ) : (
                       <Users className="w-4 h-4 mr-1" />
                     )}
-                    <span>{project.solo ? "Solo" : "Team"}</span>
+                    <span>{project.solo ? textContent.solo[language] : textContent.team[language]}</span>
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-300 mt-2">
-                  {project.description}
+                <p className="text-sm text-gray-200 mt-2">
+                  {project.description[language]}
                 </p>
 
                 {/* This wrapper ensures the tech stack + link always align to the bottom */}
@@ -81,7 +110,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 bg-gray-800 hover:bg-gray-400 text-gray-200 text-sm px-4 py-1.5 rounded-full transition-colors justify-center"
                   >
-                    View Project
+                    {textContent.viewProject[language]}
                     <ArrowBigRightDashIcon className="w-4 h-4" />
                   </a>
                 </div>

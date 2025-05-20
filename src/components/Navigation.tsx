@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const { language, toggleLanguage } = useLanguage();
+
+  const oppositeLang = language === "en" ? "fi" : "en";
+
+  const labels = {
+    github: "GitHub",
+    linkedin: "LinkedIn",
+    email: language === "en" ? "Email Me" : "Lähetä sähköpostia",
+  };
+
   return (
     <motion.nav
-      className="bg-gray-100 text-gray-900 shadow-md"
+      className="bg-gray-100 text-gray-900 shadow-md fixed top-0 left-0 right-0 z-50"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
@@ -40,6 +52,18 @@ const Navigation = () => {
             >
               <FaEnvelope />
             </a>
+            <button
+              onClick={toggleLanguage}
+              className="focus:outline-none border-none bg-transparent p-0 hover:opacity-80 transition cursor-pointer"
+              aria-label="Toggle language"
+            >
+              <Image
+                src={`img/${oppositeLang}.png`}
+                alt={`Switch to ${oppositeLang.toUpperCase()}`}
+                width={40}
+                height={40}
+              />
+            </button>
           </div>
 
           {/* Mobile hamburger */}
@@ -94,7 +118,7 @@ const Navigation = () => {
               className="text-gray-200 flex hover:text-gray-400 transition text-4xl"
             >
               <FaGithub />
-              <p className="ml-2 text-xl">GitHub</p>
+              <p className="ml-2 text-xl">{labels.github}</p>
             </a>
             <a
               href="https://www.linkedin.com/in/karri-partanen-39768b165/"
@@ -103,15 +127,27 @@ const Navigation = () => {
               className="text-blue-600 flex hover:text-blue-800 transition text-4xl"
             >
               <FaLinkedin />
-              <p className="ml-2 text-xl">LinkedIn</p>
+              <p className="ml-2 text-xl">{labels.linkedin}</p>
             </a>
             <a
               href="mailto:Karri.Partanen@metropolia.fi"
               className="text-gray-300 flex hover:text-gray-400 transition text-4xl"
             >
               <FaEnvelope />
-              <p className="ml-2 text-xl">Email Me</p>
+              <p className="ml-2 text-xl">{labels.email}</p>
             </a>
+            <button
+              onClick={toggleLanguage}
+              className="focus:outline-none border-none bg-transparent p-0 hover:opacity-80 transition cursor-pointer"
+              aria-label="Toggle language"
+            >
+              <Image
+                src={`img/${oppositeLang}.png`}
+                alt={`Switch to ${oppositeLang.toUpperCase()}`}
+                width={40}
+                height={40}
+              />
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
