@@ -7,6 +7,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import projects from "../../data/projects.json";
 import Navigation from "@/components/Navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Typewriter } from "react-simple-typewriter";
 
 //bg-gradient-to-br from-gray-300 via-indigo-900 to-purple-500
 export default function Home() {
@@ -60,13 +61,14 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-200">
+    <main className="min-h-screen bg-gray-100">
       <Navigation />
 
       {/* Background Image */}
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center py-16 px-4 mt-5">
-        <div className="w-[150px] h-[150px] rounded-full overflow-hidden shadow-lg">
+      <section className="flex flex-col items-center justify-center text-center py-16 px-4 mt-5 bg-gradient-to-br  from-gray-400 via-indigo-500 to-purple-400 transition-colors duration-500">
+
+        <div className="w-[150px] h-[150px] rounded-full overflow-hidden shadow-lg transform transition-transform duration-500 hover:scale-105">
           <Image
             src="img/karri.jpg"
             alt="Your profile photo"
@@ -77,9 +79,23 @@ export default function Home() {
           />
         </div>
 
-        <h1 className="text-4xl text-gray-800 font-bold mt-4">Karri Partanen</h1>
-        <p className="text-lg text-gray-400 mt-2">
-          {textContent.webDeveloper[language]} | {textContent.ictEngineer[language]} | {textContent.javascriptEnthusiast[language]}
+        <h1 className="text-4xl text-gray-100 font-bold mt-4">
+          Karri Partanen
+        </h1>
+        <p className="text-lg text-gray-300 mt-2">
+          <Typewriter
+            words={[
+              textContent.webDeveloper[language],
+              textContent.ictEngineer[language],
+              textContent.javascriptEnthusiast[language],
+            ]}
+            loop
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1500}
+          />
         </p>
         {/* Social Links */}
         <div className="flex space-x-4 mt-4">
@@ -87,7 +103,7 @@ export default function Home() {
             href="https://github.com/karripar"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-800 hover:text-gray-400 transition text-3xl"
+            className="text-gray-200 hover:text-gray-400 transition text-3xl"
           >
             <FaGithub />
           </a>
@@ -95,7 +111,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/karri-partanen-39768b165/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 transition text-3xl"
+            className="text-gray-200 hover:text-blue-400 transition text-3xl"
           >
             <FaLinkedin />
           </a>
@@ -104,7 +120,9 @@ export default function Home() {
 
       {/* About Section */}
       <section className="max-w-3xl mx-auto px-4 py-16 mb-10 sm:py-12 sm:mb-12">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-800">{textContent.aboutMeHeading[language]}</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+          {textContent.aboutMeHeading[language]}
+        </h2>
         <p className="text-gray-700 leading-relaxed whitespace-pre-line text-lg py-4">
           {textContent.aboutMe[language]}
         </p>
@@ -116,13 +134,15 @@ export default function Home() {
       {/* Contact Section */}
       <section className="py-12 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl text-gray-800 font-semibold mb-4">{textContent.contactMe[language]}</h2>
+          <h2 className="text-2xl text-gray-800 font-semibold mb-4">
+            {textContent.contactMe[language]}
+          </h2>
           <p className="text-gray-700 mb-4">
             {textContent.contactText[language]}
           </p>
           <a
-            href="mailto:Karri.Partanen@metropolia.fi"
-            className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+            href="mailto:karripartanen25@gmail.com"
+            className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 hover:shadow-lg hover:scale-105 transition transform duration-300"
           >
             <Mail className="inline mr-2" />
             {textContent.emailButton[language]}

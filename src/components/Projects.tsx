@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { ArrowBigRightDashIcon, User, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
 
 type ProjectProps = {
   // Define the structure of each project
@@ -13,7 +14,7 @@ type ProjectProps = {
   description: {
     en: string;
     fi: string;
-  }
+  };
   technologies: string[];
   url: string;
   imageUrl?: string;
@@ -22,7 +23,6 @@ type ProjectProps = {
 type ProjectsProps = {
   projects: ProjectProps[];
 };
-
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const { language } = useLanguage();
@@ -46,26 +46,30 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     },
   };
 
-
   return (
     <section className="py-14 px-4">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-8 text-gray-800">{textContent.projects[language]}</h2>
+        <h2 className="text-2xl font-semibold mb-8 text-gray-800">
+          {textContent.projects[language]}
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {projects.map(
             (
               project,
               index // Map through the projects array and render each project
             ) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-gradient-to-br from-gray-300 via-indigo-500 to-purple-300 p-4 rounded-xl shadow hover:shadow-md transition flex flex-col h-full"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-gradient-to-br from-gray-300 via-indigo-400 to-purple-300 p-4 rounded-xl shadow hover:shadow-md transition flex flex-col h-full"
               >
                 {project.imageUrl && (
                   <Image
                     src={project.imageUrl}
                     alt={project.title["en"]}
-                    className="rounded-md mb-3 object-cover h-100 w-full"
+                    className="rounded-md mb-3 object-cover w-full h-48 sm:h-56 md:h-64"
                     width={400}
                     height={400}
                   />
@@ -81,7 +85,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     ) : (
                       <Users className="w-4 h-4 mr-1" />
                     )}
-                    <span>{project.solo ? textContent.solo[language] : textContent.team[language]}</span>
+                    <span>
+                      {project.solo
+                        ? textContent.solo[language]
+                        : textContent.team[language]}
+                    </span>
                   </div>
                 </div>
 
@@ -109,12 +117,13 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 bg-gray-800 hover:bg-gray-400 text-gray-200 text-sm px-4 py-1.5 rounded-full transition-colors justify-center"
+                    aria-label={`View project: ${project.title[language]}`}
                   >
                     {textContent.viewProject[language]}
                     <ArrowBigRightDashIcon className="w-4 h-4" />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             )
           )}
         </div>
