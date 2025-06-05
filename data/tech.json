@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "title": {
+            "en": "TypeScript",
+            "fi": "TypeScript"
+        },
+        "skill_level_id": 5
+    },
+    {
+        "id": 2,
+        "title": {
+            "en": "JavaScript",
+            "fi": "JavaScript"
+        },
+        "skill_level_id": 5
+    },
+    {
+        "id": 3,
+        "title": {
+            "en": "Node.js",
+            "fi": "Node.js"
+        },
+        "skill_level_id": 4
+    },
+    {
+        "id": 4,
+        "title": {
+            "en": "React",
+            "fi": "React"
+        },
+        "skill_level_id": 4
+    },
+    {
+        "id": 5,
+        "title": {
+            "en": "React Native",
+            "fi": "React Native"
+        },
+        "skill_level_id": 4
+    },
+    {
+        "id": 6,
+        "title": {
+            "en": "Tailwind CSS",
+            "fi": "Tailwind CSS"
+        },
+        "skill_level_id": 4
+    },
+    {
+        "id": 7,
+        "title": {
+            "en": "Next.js",
+            "fi": "Next.js"
+        },
+        "skill_level_id": 4
+    },
+    {
+        "id": 8,
+        "title": {
+            "en": "MySQL",
+            "fi": "MySQL"
+        },
+        "skill_level_id": 5
+    },
+    {
+        "id": 9,
+        "title": {
+            "en": "MariaDB",
+            "fi": "MariaDB"
+        },
+        "skill_level_id": 5
+    },
+    {
+        "id": 10,
+        "title": {
+            "en": "Azure Cloud Services",
+            "fi": "Azure"
+        },
+        "skill_level_id": 3
+    },
+    {
+        "id": 11,
+        "title": {
+            "en": "HTML",
+            "fi": "HTML"
+        },
+        "skill_level_id": 5
+    },
+    {
+        "id": 12,
+        "title": {
+            "en": "CSS",
+            "fi": "CSS"
+        },
+        "skill_level_id": 5
+    },
+    {
+        "id": 13,
+        "title": {
+            "en": "Git",
+            "fi": "Git"
+        },
+        "skill_level_id": 5
+    },
+    {
+        "id": 14,
+        "title": {
+            "en": "Figma",
+            "fi": "Figma"
+        },
+        "skill_level_id": 4
+    },
+    {
+        "id": 15,
+        "title": {
+            "en": "PHP",
+            "fi": "PHP"
+        },
+        "skill_level_id": 3
+    }
+]

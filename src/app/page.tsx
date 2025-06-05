@@ -5,7 +5,10 @@ import { Mail } from "lucide-react";
 import Projects from "@/components/Projects";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import projects from "../../data/projects.json";
+import skills from "../../data/skills.json";
+import techStack from "../../data/tech.json";
 import Navigation from "@/components/Navigation";
+import SkillTable from "@/components/SkillTable";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -127,6 +130,9 @@ export default function Home() {
           {textContent.aboutMe[language]}
         </p>
       </section>
+
+      {/* Skills Section */}
+      <SkillTable skills={skills} techs={techStack} />
 
       {/* Projects Section */}
       <Projects projects={projects} />

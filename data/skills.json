@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "title": {
+            "en": "Responsive Web Design",
+            "fi": "Responsiivinen web-suunnittelu"
+        }
+    },
+    {
+        "id": 2,
+        "title": {
+            "en": "Object-Oriented Programming",
+            "fi": "Olio-ohjelmointi"
+        }
+    },
+    {
+        "id": 3,
+        "title": {
+            "en": "Windows/Linux Administration",
+            "fi": "Windows/Linux ylläpito"
+        }
+    },
+    {
+        "id": 4,
+        "title": {
+            "en": "Software Version Control",
+            "fi": "Ohjelmistojen versionhallinta"
+        }
+    },
+    {
+        "id": 5,
+        "title": {
+            "en": "Software Development",
+            "fi": "Ohjelmistokehitys"
+        }
+    },
+    {
+        "id": 6,
+        "title": {
+            "en": "Scrum & Agile Methodologies",
+            "fi": "Scrum & Agile -työskentely"
+        }
+    },
+    {
+        "id": 7,
+        "title": {
+            "en": "RESTful API Development",
+            "fi": "RESTful API -kehitys"
+        }
+    },
+    {
+        "id": 8,
+        "title": {
+            "en": "Database Management",
+            "fi": "Tietokannan hallinta"
+        }
+    },
+    {
+        "id": 9,
+        "title": {
+            "en": "Cloud Computing Fundamentals",
+            "fi": "Pilvipalveluiden perusteet"
+        }
+    }
+]
