@@ -3,11 +3,12 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
-import { Menu, X, Wrench } from "lucide-react";
+import { Menu, X, Wrench, Sun, Moon } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleInfo = () => setIsInfoOpen(!isInfoOpen);
@@ -40,6 +41,19 @@ const Navigation = () => {
       document.body.style.overflow = "";
     };
   }, [isInfoOpen]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setIsDarkMode(document.documentElement.classList.contains("dark"));
+  }, []);
+  
+
+  const toggleTheme = () => {
+    const newTheme = !isDarkMode ? "" : "light";
+    setIsDarkMode(!isDarkMode);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.toggle("dark", !isDarkMode);
+  }
 
   return (
     <>
@@ -101,6 +115,19 @@ const Navigation = () => {
               className="text-gray-700 hover:text-gray-400 transition text-3xl focus:outline-none"
             >
               <Wrench />
+            </button>
+
+            {/* Color theme toggle (light/dark)*/}
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle Theme"
+              className="text-gray-700 dark:text-gray-300 hover:text-gray-400 transition text-2xl focus:outline-none"
+            >
+              {isDarkMode ? (
+                <Sun className="w-6 h-6" />
+              ) : (
+                <Moon className="w-6 h-6" />
+              )}
             </button>
 
             {/* Mobile hamburger menu toggle - visible only on mobile */}

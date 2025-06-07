@@ -4,6 +4,7 @@ import "./globals.css";
 import "keen-slider/keen-slider.min.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Analytics } from "@vercel/analytics/next";
+import { ThemeScript } from "@/scripts/ThemeScript";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,10 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ThemeScript/>
         <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>
