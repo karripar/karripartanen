@@ -40,14 +40,14 @@ export default function Home() {
       Outside technical skills, I have extensive experience in customer service and working in international environments. I am passionate about football, nature, music and gaming. I believe that a well-rounded life leads to better creativity and problem-solving skills.
       Feel free to check out some of my latest projects below or connect with me on LinkedIn!
       
-      Right now, I am actively looking for an intership or a job opportunity in various technical fields. My exchange period in New Zealand coming up in February 2026 is something I am excitedly looking forward to!`,
+      Right now, I am actively looking for an intership or a job opportunity in various technical fields.`,
       fi: `Olen intohimoinen kehittäjä, joka keskittyy responsiivisten ja käyttäjäystävällisten verkkosovellusten rakentamiseen. Nautin ongelmien ratkaisemisesta, uusien teknologioiden tutkimisesta ja merkityksellisten projektien parissa tapahtuvasta yhteistyöstä.
       Vapaa-ajallani nautin erityisesti tietokoneiden kokoamisesta ja jatkuvasta selvittämisestä siitä, miten kaikki toimii käytännössä.
 
       Teknisten taitojen lisäksi minulla on laajaa kokemusta asiakaspalvelusta ja työskentelystä kansainvälisissä ympäristöissä. Olen intohimoinen jalkapallon, luonnon, musiikin ja pelaamisen suhteen. Uskon, että monipuolinen elämä johtaa kehittyneempään luovuuteen ja ongelmanratkaisukykyyn.
       Voit tutustua viimeisimpiin projekteihini alla olevista esittelykorteista tai ottaa yhteyttä LinkedInissä!
       
-      Tällä hetkellä etsin aktiivisesti harjoittelupaikkaa tai työmahdollisuutta erilaisilla teknisillä aloilla. Vaihto-opiskelujaksoni Uudessa-Seelannissa helmikuussa 2026 on tapahtuma, jota odotan innolla!`,
+      Tällä hetkellä etsin aktiivisesti harjoittelupaikkaa tai työmahdollisuutta erilaisilla teknisillä aloilla.`,
     },
     contactMe: {
       en: "Get in Touch",
