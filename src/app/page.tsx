@@ -147,7 +147,7 @@ export default function Home() {
             {textContent.contactText[language]}
           </p>
           <a
-            href="mailto:karripartanen25@gmail.com"
+            href="mailto:karri.t.partanen@gmail.com"
             className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 hover:shadow-lg hover:scale-105 transition transform duration-300"
           >
             <Mail className="inline mr-2" />

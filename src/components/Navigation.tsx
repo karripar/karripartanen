@@ -71,7 +71,7 @@ const Navigation = () => {
               <FaLinkedin />
             </a>
             <a
-              href="mailto:karripartanen25@gmail.com"
+              href="mailto:karri.t.partanen@gmail.com"
               className="text-gray-700 hover:text-gray-400 transition text-4xl"
             >
               <FaEnvelope />
@@ -151,7 +151,7 @@ const Navigation = () => {
                 <p className="ml-2 text-lg font-semibold">{labels.linkedin}</p>
               </a>
               <a
-                href="mailto:karripartanen25@gmail.com"
+                href="mailto:karri.t.partanen@gmail.com"
                 className="text-gray-200 flex hover:text-gray-400 transition text-3xl"
                 onClick={() => setIsOpen(false)}
               >
