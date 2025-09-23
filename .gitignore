@@ -42,4 +42,5 @@ next-env.d.ts
 
 
 # images
-public/img/
+public/
+!public/img
