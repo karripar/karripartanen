@@ -32,16 +32,16 @@
   {
     "id": 3,
     "title": {
-      "en": "Tataki - Sushi Restaurant",
-      "fi": "Tataki – Sushi-ravintola"
+      "en": "Student Exchange Platform (Work in Progress)",
+      "fi": "Vaihtoaktivaattori (työn alla)"
     },
     "solo": false,
     "description": {
-      "en": "Tataki is a sushi restaurant website that showcases modern sushi dishes, offers online ordering, and provides information about the restaurant's history and philosophy. The website is designed to be visually appealing and easy to navigate. Backend published in Azure.",
-      "fi": "Tataki on sushiravintolan verkkosivusto, joka esittelee moderneja sushiruokia, tarjoaa verkkomyynnin ja kertoo ravintolan historiasta ja filosofiasta. Sivusto on visuaalisesti houkutteleva ja helppokäyttöinen. Backend julkaistu Azureen."
+      "en": "The Student Exchange Platform is a web application that connects students interested in exchange programs with people who have already participated in such programs. The platform allows users to create profiles, share their experiences, and find potential exchange partners. Users may find important dates and information considering the application process and support that comes with it.",
+      "fi": "Vaihtoaktivaattori on verkkosovellus, joka yhdistää vaihto-ohjelmista kiinnostuneet opiskelijat henkilöihin, jotka ovat jo osallistuneet vaihto-ohjelmiin. Alusta mahdollistaa käyttäjien profiilien luomisen, kokemustensa jakamisen ja potentiaalisten vaihtokumppaneiden löytämisen. Käyttäjät voivat löytää tärkeitä päivämääriä ja tietoa hakuprosessista ja siihen liittyvästä tuesta."
     },
-    "technologies": ["HTML", "CSS", "TypeScript", "Node.js", "MariaDB"],
-    "url": "https://github.com/Elliriskala/Tataki",
-    "imageUrl": "img/tataki.png"
+    "technologies": ["React", "Next.js", "Tailwind CSS", "Node.js", "TypeScript", "MongoDB"],
+    "url": "https://github.com/karripar/va-backend",
+    "imageUrl": "img/wip.png"
   }
 ]
