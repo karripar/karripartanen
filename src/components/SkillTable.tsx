@@ -1,204 +1,111 @@
 import React, { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowBigUp, ArrowBigDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+
+/* ---------------- types ---------------- */
 
 type SkillProps = {
   id: number;
-  title: {
-    en: string;
-    fi: string;
-  };
-};
-
-type SkillsProps = {
-  skills: SkillProps[];
+  title: { en: string; fi: string };
 };
 
 type TechProps = {
   id: number;
-  title: {
-    en: string;
-    fi: string;
-  };
+  title: { en: string; fi: string };
   skill_level_id: number;
 };
 
-type TechStackProps = {
+type Props = {
+  skills: SkillProps[];
   techs: TechProps[];
 };
 
-const SkillTable: React.FC<SkillsProps & TechStackProps> = ({ skills, techs }) => {
-  // Slider for Skills
-  const [skillsSliderRef, skillsSlider] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    mode: "free-snap",
-    slides: {
-      perView: 1,
-      spacing: 15,
-    },
-    breakpoints: {
-      "(min-width: 640px)": {
-        slides: { perView: 2, spacing: 15 },
-      },
-      "(min-width: 1024px)": {
-        slides: { perView: 3, spacing: 15 },
-      },
-    },
-  });
+/* ---------------- component ---------------- */
 
-  // Slider for Techs
-  const [techsSliderRef, techsSlider] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    mode: "free-snap",
-    slides: {
-      perView: 1,
-      spacing: 15,
-    },
-    breakpoints: {
-      "(min-width: 640px)": {
-        slides: { perView: 2, spacing: 15 },
-      },
-      "(min-width: 1024px)": {
-        slides: { perView: 3, spacing: 15 },
-      },
-    },
-  });
-
+const SkillTable: React.FC<Props> = ({ skills, techs }) => {
   const { language } = useLanguage();
-  const [showSections, setShowSections] = useState(false);
+  const [open, setOpen] = useState(true);
 
-  const textContent = {
-    skills: {
-      en: "Skills",
-      fi: "Taidot",
-    },
-    techStack: {
-      en: "Tech Stack",
-      fi: "Teknologiat",
-    },
-    toggle: {
-      en: "Toggle",
-      fi: "Näytä/piilota",
-    },
-    scroll: {
-      en: "Scroll the carousel to see more",
-      fi: "Selaa karusellia nähdäksesi lisää",
+  const sliderConfig = {
+    loop: true,
+    mode: "free-snap" as const,
+    slides: { perView: 1.2, spacing: 16 },
+    breakpoints: {
+      "(min-width: 640px)": { slides: { perView: 2.2, spacing: 16 } },
+      "(min-width: 1024px)": { slides: { perView: 3.2, spacing: 16 } },
     },
   };
 
+  const [skillsRef] = useKeenSlider<HTMLDivElement>(sliderConfig);
+  const [techsRef] = useKeenSlider<HTMLDivElement>(sliderConfig);
+
+  const text = {
+    title: { en: "Skills & Tech Stack", fi: "Taidot & Teknologiat" },
+    skills: { en: "Skills", fi: "Taidot" },
+    tech: { en: "Tech Stack", fi: "Teknologiat" },
+  };
+
+  const Card = ({ title }: { title: string }) => (
+    <motion.div
+      whileHover={{ y: -6, scale: 1.03 }}
+      className="keen-slider__slide bg-white/80 backdrop-blur rounded-2xl p-6 shadow-sm border border-gray-200"
+    >
+      <p className="text-lg font-medium text-gray-800">{title}</p>
+    </motion.div>
+  );
+
   return (
-    <section className="py-14 px-4">
-      <div className="max-w-5xl mx-auto">
-        {/* Header and Toggle */}
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-800">
-              {textContent.skills[language]} & {textContent.techStack[language]}
-            </h2>
-            <p className="text-gray-600 text-sm">{textContent.scroll[language]}</p>
-          </div>
+    <section className="py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-3xl font-semibold">
+            {text.title[language]}
+          </h2>
+
           <button
-            onClick={() => setShowSections((prev) => !prev)}
-            className="text-sm text-blue-900 hover:underline"
-            aria-label={textContent.toggle[language]}
+            onClick={() => setOpen((v) => !v)}
+            className="p-2 rounded-full hover:bg-gray-200 transition"
+            aria-label="toggle"
           >
-            {showSections ? (
-              <ArrowBigUp size={40} className="inline-block" />
-            ) : (
-              <ArrowBigDown size={40} className="inline-block" />
-            )}
+            {open ? <ChevronUp /> : <ChevronDown />}
           </button>
         </div>
 
         <AnimatePresence>
-          {showSections && (
+          {open && (
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.25 }}
+              className="space-y-16"
             >
-              {/* Skills Slider with Arrows */}
-              <div className="mb-8">
-                <div className="flex justify-between mb-2">
-                  <button
-                    onClick={() => skillsSlider.current?.prev()}
-                    className="px-3 py-1 bg-gray-600 rounded hover:bg-gray-400"
-                    aria-label="Previous skills"
-                  >
-                    Prev
-                  </button>
-                  <button
-                    onClick={() => skillsSlider.current?.next()}
-                    className="px-3 py-1 bg-gray-600 rounded hover:bg-gray-400"
-                    aria-label="Next skills"
-                  >
-                    Next
-                  </button>
-                </div>
-                <div ref={skillsSliderRef} className="keen-slider py-4">
-                  {skills.map((skill, index) => (
-                    <motion.div
-                      key={`skill-${skill.id}`}
-                      className="keen-slider__slide relative bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 min-h-[120px]"
-                    >
-                      <div
-                        className={`absolute top-0 right-0 h-full w-3 rounded-r-lg ${
-                          index % 3 === 0
-                            ? "bg-red-500"
-                            : index % 3 === 1
-                            ? "bg-blue-500"
-                            : "bg-green-500"
-                        }`}
-                      />
-                      <h3 className="text-lg font-semibold mb-2 text-gray-600">
-                        {skill.title[language]}
-                      </h3>
-                    </motion.div>
+              {/* Skills */}
+              <div>
+                <h3 className="text-xl font-medium mb-4 text-gray-700">
+                  {text.skills[language]}
+                </h3>
+
+                <div ref={skillsRef} className="keen-slider">
+                  {skills.map((s) => (
+                    <Card key={s.id} title={s.title[language]} />
                   ))}
                 </div>
               </div>
 
-              {/* Tech Stack Slider with Arrows */}
+              {/* Tech */}
               <div>
-                <div className="flex justify-between mb-2">
-                  <button
-                    onClick={() => techsSlider.current?.prev()}
-                    className="px-3 py-1 bg-gray-600 rounded hover:bg-gray-400"
-                    aria-label="Previous tech stack"
-                  >
-                    Prev
-                  </button>
-                  <button
-                    onClick={() => techsSlider.current?.next()}
-                    className="px-3 py-1 bg-gray-600 rounded hover:bg-gray-400"
-                    aria-label="Next tech stack"
-                  >
-                    Next
-                  </button>
-                </div>
-                <div ref={techsSliderRef} className="keen-slider py-4">
-                  {techs.map((tech, index) => (
-                    <motion.div
-                      key={`tech-${tech.id}`}
-                      className="keen-slider__slide relative bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 min-h-[120px]"
-                    >
-                      <div
-                        className={`absolute top-0 right-0 h-full w-3 rounded-r-lg ${
-                          index % 3 === 0
-                            ? "bg-red-500"
-                            : index % 3 === 1
-                            ? "bg-blue-500"
-                            : "bg-green-500"
-                        }`}
-                      />
-                      <h3 className="text-lg font-semibold mb-2 text-gray-600">
-                        {tech.title[language]}
-                      </h3>
-                    </motion.div>
+                <h3 className="text-xl font-medium mb-4 text-gray-700">
+                  {text.tech[language]}
+                </h3>
+
+                <div ref={techsRef} className="keen-slider">
+                  {techs.map((t) => (
+                    <Card key={t.id} title={t.title[language]} />
                   ))}
                 </div>
               </div>

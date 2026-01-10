@@ -52,7 +52,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         <h2 className="text-2xl font-semibold mb-8 text-gray-800">
           {textContent.projects[language]}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
           {projects.map(
             (
               project,
