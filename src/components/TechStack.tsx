@@ -12,6 +12,7 @@ const tech = [
   { name: "Git", src: "/icons/Git.svg" },
   { name: "Python", src: "/icons/Python.svg" },
   { name: "MongoDB", src: "/icons/MongoDB.svg" },
+  { name: "VS Code", src: "/icons/VSCode.svg" },
   { name: "MySQL", src: "/icons/MySQL.svg" },
   { name: "Docker", src: "/icons/Docker.svg" },
   { name: "Figma", src: "/icons/Figma.svg" },
@@ -23,22 +24,24 @@ const tech = [
 const translations = {
   en: {
     techStack: "Tech Stack",
-    description: "Below you will not find all the technologies and tools I use, but these are the ones I work with the most.",
-    },
-    fi: {
+    description:
+      "Below you will not find all the technologies and tools I use, but these are the ones I work with the most.",
+  },
+  fi: {
     techStack: "Teknologiat",
-    description: "Alta et löydä kaikkia käyttämiäni teknologioita ja työkaluja, mutta nämä ovat niitä, joiden kanssa työskentelen eniten.",
-    },
+    description:
+      "Alta et löydä kaikkia käyttämiäni teknologioita ja työkaluja, mutta nämä ovat niitä, joiden kanssa työskentelen eniten.",
+  },
 };
 
 export default function TechStack() {
-    const { language } = useLanguage();
+  const { language } = useLanguage();
   return (
     <section className="max-w-6xl mx-auto px-4 py-16">
       <h2 className="text-2xl font-semibold mb-8">
         {translations[language].techStack}
       </h2>
-        <p className="text-gray-600 mb-12">
+      <p className="text-gray-600 mb-12">
         {translations[language].description}
       </p>
 
@@ -56,7 +59,9 @@ export default function TechStack() {
               height={64}
               className="object-contain"
             />
+            
           </div>
+
         ))}
       </div>
     </section>

@@ -24,20 +24,20 @@ export default function Home() {
     },
     aboutMeHeading: { en: "About Me", fi: "Tietoa minusta" },
     aboutMe: {
-      en: `I'm a passionate developer focused on building responsive, user-friendly web applications. I enjoy solving problems, exploring new technologies, and collaborating on meaningful projects.
+      en: `I am a dedicated web developer with a strong focus on creating responsive and user-centric web applications. My expertise lies in problem-solving, exploring emerging technologies, and contributing to impactful projects through effective collaboration.
 
-In my spare time, I particularly enjoy building computers and learning how everything works under the hood.
+In addition to my technical skills, I have a solid background in customer service and experience working in diverse, international environments. This has improved my communication and teamwork abilities, which I bring to every project.
 
-Outside technical skills, I have extensive experience in customer service and working in international environments. I am passionate about football, nature, music and trying out various activities.
+I am passionate about continuous learning, whether it's building computers to deepen my understanding of hardware or staying updated with the latest advancements in technology. Outside of work, I enjoy football, exploring nature, and engaging in creative pursuits like music.
 
-Right now, I am actively looking for an internship or a job opportunity in various technical fields.`,
-      fi: `Olen intohimoinen kehittäjä, joka keskittyy responsiivisten ja käyttäjäystävällisten verkkosovellusten rakentamiseen. Nautin ongelmanratkaisusta, uusien teknologioiden tutkimisesta ja merkityksellisiin projekteihin osallistumisesta.
+Currently, I am actively seeking internship or full-time opportunities in the tech industry where I can contribute my skills and grow professionally.`,
+      fi: `Olen omistautunut web-kehittäjä, joka keskittyy responsiivisten ja käyttäjäystävällisten verkkosovellusten luomiseen. Erityisosaamistani ovat ongelmanratkaisu, uusien teknologioiden tutkiminen ja merkityksellisiin projekteihin osallistuminen tehokkaan yhteistyön kautta.
 
-Vapaa-ajallani nautin erityisesti tietokoneiden kokoamisesta ja oppimisesta siitä, miten kaikki toimii "konepellin" alla. Vapaa-ajallani nautin erityisesti myös kuntoilusta, luonnossa liikkumisesta, musiikista ja heittäydyn mielelläni kokeilemaan mitä erilaisimpia aktiviteetteja.
+Teknisten taitojeni lisäksi minulla on vahva tausta asiakaspalvelussa ja kokemusta työskentelystä monimuotoisissa, kansainvälisissä ympäristöissä. Tämä on kehittänyt viestintä- ja tiimityötaitojani, joita hyödynnän kaikissa projekteissani.
 
-Minulla on myös laajaa kokemusta asiakaspalvelusta ja kansainvälisestä työskentelystä.
+Olen intohimoinen jatkuvan oppimisen suhteen, olipa kyse tietokoneiden rakentamisesta komponenttien syvällisemmän ymmärtämisen vuoksi tai uusimpien teknologisten kehitysten seuraamisesta. Vapaa-ajallani nautin jalkapallosta, luonnossa liikkumisesta ja luovista harrastuksista, kuten musiikista.
 
-Tällä hetkellä etsin aktiivisesti harjoittelupaikkaa tai työmahdollisuutta teknisiltä aloilta.`,
+Tällä hetkellä etsin aktiivisesti harjoittelu- tai kokopäivätyömahdollisuuksia tekniseltä alalta, joissa voin hyödyntää taitojani ja kehittyä ammatillisesti.`,
     },
     contactMe: { en: "Get in Touch", fi: "Ota yhteyttä" },
     contactText: {
@@ -112,8 +112,8 @@ Tällä hetkellä etsin aktiivisesti harjoittelupaikkaa tai työmahdollisuutta t
             className="inline-flex items-center gap-2 mt-8 text-sm text-gray-500 hover:text-gray-800 transition"
           >
             {textContent.scrollDown[language]}
-            
-             <ArrowDown size={16} />
+
+            <ArrowDown size={16} />
           </a>
         </motion.div>
       </section>

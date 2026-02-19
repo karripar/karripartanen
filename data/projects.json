@@ -17,13 +17,13 @@
   {
     "id": 2,
     "title": {
-      "en": "Student Exchange Platform (Work in Progress)",
-      "fi": "Vaihtoaktivaattori (työn alla)"
+      "en": "Go Exchange (Work in Progress)",
+      "fi": "Go Exchange (työn alla)"
     },
     "solo": false,
     "description": {
-      "en": "The Student Exchange Platform is a web application that connects students interested in exchange programs with people who have already participated in such programs. The platform allows users to create profiles, share their experiences, and find potential exchange partners. Users may find important dates and information considering the application process and support that comes with it. OpenAI AI-Chat integration has been added to enhance user experience.",
-      "fi": "Vaihtoaktivaattori on verkkosovellus, joka yhdistää vaihto-ohjelmista kiinnostuneet opiskelijat henkilöihin, jotka ovat jo osallistuneet vaihto-ohjelmiin. Alusta mahdollistaa käyttäjien profiilien luomisen, kokemustensa jakamisen ja potentiaalisten vaihtokumppaneiden löytämisen. Käyttäjät voivat löytää tärkeitä päivämääriä ja tietoa hakuprosessista ja siihen liittyvästä tuesta. OpenAI AI-chat-integraatio on lisätty parantamaan käyttäjäkokemusta."
+      "en": "Go Exchange is a web application that connects students interested in exchange programs with people who have already participated in such programs. The platform allows users to create profiles, share their experiences, and find potential exchange partners. Users may find important dates and information considering the application process and support that comes with it. OpenAI AI-Chat integration has been added to enhance user experience.",
+      "fi": "Go Exchange on verkkosovellus, joka yhdistää vaihto-ohjelmista kiinnostuneet opiskelijat henkilöihin, jotka ovat jo osallistuneet vaihto-ohjelmiin. Alusta mahdollistaa käyttäjien profiilien luomisen, kokemustensa jakamisen ja potentiaalisten vaihtokumppaneiden löytämisen. Käyttäjät voivat löytää tärkeitä päivämääriä ja tietoa hakuprosessista ja siihen liittyvästä tuesta. OpenAI AI-chat-integraatio on lisätty parantamaan käyttäjäkokemusta."
     },
     "technologies": ["React", "Next.js", "Tailwind CSS", "Node.js", "TypeScript", "MongoDB"],
     "url": "https://github.com/karripar/va-backend",
