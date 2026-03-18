@@ -11,7 +11,7 @@ const textContent = {
   },
   introLine: {
     en: "I design and build responsive, user-focused web experiences with a strong eye for detail and collaboration.",
-    fi: "Suunnittelen ja toteutan responsiivisia, käyttäjälähtöisiä verkkokokemuksia tarkalla huomiolla yksityiskohtiin ja yhteistyöhön.",
+    fi: "Suunnittelen ja toteutan responsiivisia, käyttäjälähtöisiä verkkosovelluksia tarkalla huomiolla yksityiskohtiin ja yhteistyöhön",
   },
   highlightTitle: { en: "Highlights", fi: "Vahvuuteni" },
   highlights: {
@@ -22,7 +22,7 @@ const textContent = {
     ],
     fi: [
       "Frontend-painotteinen fullstack-kehittäjä",
-      "Luonteva kansainvälisissä ja asiakasrajapinnan rooleissa",
+      "Luonteva kansainvälisissä rooleissa, sekä asiakasrajapinnassa",
       "Kokeilen mielelläni uusia työkaluja ja teknologioita",
     ],
   },
@@ -30,8 +30,8 @@ const textContent = {
   keyFacts: {
     en: [
       "Background in customer service and multicultural teams",
-      "Enjoy building PCs and understanding hardware",
-      "Free time: football, nature, and music",
+      "Enjoy building PCs and configuring hardware",
+      "Free time: football, nature, and music (especially live music)",
       "Actively looking for internship or full-time roles in tech",
     ],
     fi: [
