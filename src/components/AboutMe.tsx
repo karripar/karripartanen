@@ -6,23 +6,25 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const textContent = {
   aboutMeHeading: { en: "About Me", fi: "Tietoa minusta" },
   introTag: {
-    en: "Web developer · Learner · Team player",
-    fi: "Web-kehittäjä · Oppija · Tiimipelaaja",
+    en: "Web developer · Constant learner · Team player",
+    fi: "Web-kehittäjä · Jatkuva oppija · Tiimipelaaja",
   },
   introLine: {
-    en: "I design and build responsive, user-focused web experiences with a strong eye for detail and collaboration.",
-    fi: "Suunnittelen ja toteutan responsiivisia, käyttäjälähtöisiä verkkosovelluksia tarkalla huomiolla yksityiskohtiin ja yhteistyöhön",
+    en: "I design and build responsive, user-focused web experiences with a strong eye for detail and collaboration at the core.",
+    fi: "Suunnittelen ja toteutan responsiivisia, käyttäjäkeskeisiä verkkosovelluksia tarkalla huomiolla yksityiskohtiin ja yhteistyöhön perustuen.",
   },
   highlightTitle: { en: "Highlights", fi: "Vahvuuteni" },
   highlights: {
     en: [
-      "Frontend-focused fullstack developer",
+      "Frontend-focused fullstack developer but a passion for backend and infrastructure too",
       "Comfortable in international, customer-facing roles",
+      "Experience with project management and Agile workflows",
       "Always experimenting with new tools and workflows",
     ],
     fi: [
-      "Frontend-painotteinen fullstack-kehittäjä",
+      "Frontend-painotteinen fullstack-kehittäjä mutta intohimo myös backendia ja infrastruktuuria kohtaan",
       "Luonteva kansainvälisissä rooleissa, sekä asiakasrajapinnassa",
+      "Kokemusta projektinhallintatehtävistä ja Agile-työskentelystä",
       "Kokeilen mielelläni uusia työkaluja ja teknologioita",
     ],
   },
@@ -31,25 +33,23 @@ const textContent = {
     en: [
       "Background in customer service and multicultural teams",
       "Enjoy building PCs and configuring hardware",
-      "Free time: football, nature, and music (especially live music)",
       "Actively looking for internship or full-time roles in tech",
     ],
     fi: [
       "Taustaa asiakaspalvelusta ja monikulttuurisista tiimeistä",
       "Pidän tietokoneiden kasaamisesta ja laitteiston konfiguroinnista",
-      "Vapaa-aika: jalkapallo, luonto ja livemusiikki",
       "Etsin aktiivisesti harjoittelu- tai kokopäivätyöpaikkaa tekniseltä alalta",
     ],
   },
   aboutMe: {
-    en: `I am a dedicated web developer with a strong focus on creating responsive and user-centric web applications. My expertise lies in problem-solving, exploring emerging technologies, and contributing to impactful projects through effective collaboration.
+    en: `I am a dedicated web developer with a strong focus on creating responsive and user-centric web applications. My expertise lies in problem-solving, exploring emerging technologies, and contributing to impactful fullstack projects.
 
 In addition to my technical skills, I have experience working in diverse, international environments. This has improved my communication and teamwork abilities, which I bring to every project.
 
 I am passionate about continuous learning, whether it's building computers to deepen my understanding of hardware or staying updated with the latest advancements in technology. Outside of work, I enjoy football, exploring nature, and engaging in creative pursuits like music.
 
 Currently, I am actively seeking internship or full-time opportunities in the tech industry where I can contribute my skills and grow professionally.`,
-    fi: `Olen omistautunut web-kehittäjä, joka keskittyy responsiivisten ja käyttäjäystävällisten verkkosovellusten luomiseen. Erityisosaamistani ovat ongelmanratkaisu, uusien teknologioiden tutkiminen ja merkityksellisiin projekteihin osallistuminen tehokkaan yhteistyön kautta.
+    fi: `Olen omistautunut web-kehittäjä, joka keskittyy responsiivisten ja käyttäjäystävällisten verkkosovellusten luomiseen. Erityisosaamistani ovat ongelmanratkaisu, uusien teknologioiden tutkiminen ja merkityksellisiin fullstack-projekteihin osallistuminen.
 
 Teknisten taitojeni lisäksi minulla on kokemusta työskentelystä monimuotoisissa, kansainvälisissä ympäristöissä. Tämä on kehittänyt viestintä- ja tiimityötaitojani, joita hyödynnän kaikissa projekteissani.
 
@@ -65,7 +65,7 @@ const containerVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.3,
       ease: "easeOut",
       when: "beforeChildren",
       staggerChildren: 0.08,
