@@ -44,25 +44,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
-      className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 text-white shadow-lg hover:shadow-xl border border-white/5 flex flex-col h-full"
+      transition={{ delay: index * 0.04, duration: 0.2, ease: "easeOut" }}
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm"
     >
       {/* subtle overlay on hover */}
-      <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100 bg-slate-900/5" />
 
       {project.imageUrl && (
         <div className="relative">
           <Image
             src={project.imageUrl}
             alt={project.title["en"]}
-            className="h-48 sm:h-56 md:h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="h-48 w-full object-cover transition-transform duration-200 group-hover:scale-[1.02] sm:h-56 md:h-64"
             width={400}
             height={400}
           />
           {/* solo / team pill over image on larger screens */}
-          <div className="hidden sm:flex absolute top-3 right-3 items-center gap-1 rounded-full bg-black/70 px-2.5 py-1 text-xs text-gray-100 backdrop-blur-sm">
+          <div className="absolute right-3 top-3 hidden items-center gap-1 rounded-full border border-slate-200 bg-white/95 px-2.5 py-1 text-xs text-slate-700 sm:flex">
             {project.solo ? (
               <User className="w-3.5 h-3.5" />
             ) : (
@@ -84,7 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </h3>
 
           {/* solo / team for small screens */}
-          <div className="flex sm:hidden items-center text-xs text-gray-200 bg-white/5 rounded-full px-2 py-1">
+          <div className="flex items-center rounded-full border border-slate-200 bg-slate-50 px-2 py-1 text-xs text-slate-700 sm:hidden">
             {project.solo ? (
               <User className="w-3.5 h-3.5 mr-1" />
             ) : (
@@ -98,7 +98,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </div>
         </div>
 
-        <p className="mt-2 text-sm text-gray-200/90 ">
+        <p className="mt-2 text-sm text-slate-600">
           {project.description[language]}
         </p>
 
@@ -108,7 +108,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             {project.technologies.map((tech, i) => (
               <span
                 key={i}
-                className="bg-white/10 text-gray-100 text-[11px] sm:text-xs px-2.5 py-1 rounded-full border border-white/10"
+                className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] text-slate-700 sm:text-xs"
               >
                 {tech}
               </span>
@@ -117,7 +117,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
           {/* CTA aligned bottom */}
           <div className="mt-auto flex justify-between items-center gap-2">
-            <span className="hidden sm:inline text-[11px] text-gray-300/80">
+            <span className="hidden text-[11px] text-slate-500 sm:inline">
               {language === "fi"
                 ? "Avaa projekti uudessa välilehdessä"
                 : "Opens project in a new tab"}
@@ -127,7 +127,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full bg-white text-slate-900 text-xs sm:text-sm font-medium px-3.5 sm:px-4 py-1.5 sm:py-1.5 transition-transform transition-colors duration-200 group-hover:bg-slate-100 hover:translate-y-0.5"
+              className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-white transition-colors duration-200 hover:bg-slate-800 sm:px-4 sm:py-1.5 sm:text-sm"
               aria-label={`View project: ${project.title[language]}`}
             >
               {textContent.viewProject[language]}

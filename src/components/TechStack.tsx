@@ -37,31 +37,29 @@ const translations = {
 export default function TechStack() {
   const { language } = useLanguage();
   return (
-    <section className="max-w-6xl mx-auto px-4 py-16">
-      <h2 className="text-2xl font-semibold mb-8">
+    <section className="mx-auto max-w-6xl rounded-3xl border border-slate-200 bg-white px-6 py-12 shadow-sm">
+      <h2 className="mb-6 text-3xl font-semibold tracking-tight text-slate-900">
         {translations[language].techStack}
       </h2>
-      <p className="text-gray-600 mb-12">
+      <p className="mb-10 max-w-3xl text-slate-600">
         {translations[language].description}
       </p>
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 items-center">
+      <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6">
         {tech.map((t) => (
           <div
             key={t.name}
-            className="flex items-center justify-center grayscale hover:grayscale-0 transition"
+            className="flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 p-4 grayscale transition duration-200 hover:grayscale-0"
             title={t.name}
           >
             <Image
               src={t.src}
               alt={t.name}
-              width={64}
-              height={64}
+              width={52}
+              height={52}
               className="object-contain"
             />
-            
           </div>
-
         ))}
       </div>
     </section>

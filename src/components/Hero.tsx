@@ -3,17 +3,14 @@
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const textContent = {
-  webDeveloper: { en: "Web Developer", fi: "Web-kehittäjä" },
-  ictEngineer: { en: "ICT Engineer", fi: "ICT-insinööri" },
-  javascriptEnthusiast: {
-    en: "JavaScript Enthusiast",
-    fi: "JavaScript-intoilija",
+  roleLine: {
+    en: "Web Developer | ICT Engineer | JavaScript Enthusiast",
+    fi: "Web-kehittäjä | ICT-insinööri | JavaScript-intoilija",
   },
   scrollDown: { en: "More about me", fi: "Lisää minusta" },
 };
@@ -24,12 +21,12 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 bg-white/60 backdrop-blur-xl rounded-3xl shadow-xl p-10 max-w-2xl w-full text-center"
+        transition={{ duration: 0.28, ease: "easeOut" }}
+        className="relative z-10 w-full max-w-2xl rounded-3xl border border-slate-200 bg-white/92 p-10 text-center shadow-sm"
       >
-        <div className="mx-auto w-32 h-32 rounded-full overflow-hidden shadow-lg">
+        <div className="mx-auto h-32 w-32 overflow-hidden rounded-full border border-slate-200 shadow-sm">
           <Image
             src="/img/karri.jpg"
             alt="Profile"
@@ -39,36 +36,26 @@ export default function Hero() {
           />
         </div>
 
-        <h1 className="mt-6 text-4xl font-bold">Karri Partanen</h1>
+        <h1 className="mt-6 text-4xl font-semibold tracking-tight">
+          Karri Partanen
+        </h1>
 
-        <p className="mt-3 text-lg text-gray-600 h-6">
-          <Typewriter
-            words={[
-              textContent.webDeveloper[language],
-              textContent.ictEngineer[language],
-              textContent.javascriptEnthusiast[language],
-            ]}
-            loop
-            cursor
-            cursorStyle="_"
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1500}
-          />
+        <p className="mt-3 text-sm font-medium uppercase tracking-[0.14em] text-slate-600 sm:text-base">
+          {textContent.roleLine[language]}
         </p>
 
-        <div className="flex justify-center space-x-6 mt-6 text-2xl">
+        <div className="mt-6 flex justify-center space-x-6 text-2xl text-slate-700">
           <a
             href="https://github.com/karripar"
             target="_blank"
-            className="hover:scale-110 transition"
+            className="transition-colors duration-200 hover:text-slate-900"
           >
             <FaGithub />
           </a>
           <a
             href="https://www.linkedin.com/in/karri-partanen-39768b165/"
             target="_blank"
-            className="text-blue-600 hover:scale-110 transition"
+            className="text-sky-700 transition-colors duration-200 hover:text-sky-800"
           >
             <FaLinkedin />
           </a>
@@ -76,7 +63,7 @@ export default function Hero() {
 
         <a
           href="#about"
-          className="inline-flex items-center gap-2 mt-8 text-sm text-gray-500 hover:text-gray-800 transition"
+          className="mt-8 inline-flex items-center gap-2 text-sm text-slate-500 transition-colors duration-200 hover:text-slate-800"
         >
           {textContent.scrollDown[language]}
 

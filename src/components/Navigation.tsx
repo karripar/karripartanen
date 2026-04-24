@@ -47,16 +47,16 @@ const Navigation = () => {
   /* ----------------------------- animations ----------------------------- */
 
   const itemVariants = {
-    hidden: { opacity: 0, x: 20 },
+    hidden: { opacity: 0, x: 10 },
     visible: (i: number) => ({
       opacity: 1,
       x: 0,
-      transition: { delay: i * 0.08 },
+      transition: { delay: i * 0.04, duration: 0.18 },
     }),
   };
 
   const iconClass =
-    "relative p-2 rounded-full hover:bg-gray-200/60 transition-colors";
+    "relative rounded-full p-2 text-slate-800 hover:bg-slate-100/80 transition-colors duration-200";
 
   /* ----------------------------- render ----------------------------- */
 
@@ -64,19 +64,19 @@ const Navigation = () => {
     <>
       {/* ================= NAVBAR ================= */}
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md border-b border-white/30 shadow-sm"
+        className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 bg-white shadow-[0_1px_0_0_rgba(15,23,42,0.04)]"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 120 }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
       >
-        <div className="max-w-6xl mx-auto px-4 flex items-center justify-center h-16 relative">
+        <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-center px-4">
           {/* Logo */}
 
           {/* Desktop center icons */}
           <div className="hidden md:flex items-center space-x-4">
             <motion.a
-              whileHover={{ y: -2, scale: 1.08 }}
-              whileTap={{ scale: 0.92 }}
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
               href="https://github.com/karripar"
               target="_blank"
               className={iconClass}
@@ -85,18 +85,18 @@ const Navigation = () => {
             </motion.a>
 
             <motion.a
-              whileHover={{ y: -2, scale: 1.08 }}
-              whileTap={{ scale: 0.92 }}
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
               href="https://www.linkedin.com/in/karri-partanen-39768b165/"
               target="_blank"
               className={iconClass}
             >
-              <FaLinkedin className="text-2xl text-blue-600" />
+              <FaLinkedin className="text-2xl text-sky-700" />
             </motion.a>
 
             <motion.a
-              whileHover={{ y: -2, scale: 1.08 }}
-              whileTap={{ scale: 0.92 }}
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
               href="mailto:karri.t.partanen@gmail.com"
               className={iconClass}
             >
@@ -107,9 +107,10 @@ const Navigation = () => {
           {/* Right utilities */}
           <div className="absolute right-4 flex items-center space-x-3">
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
               onClick={toggleLanguage}
+              className="rounded-full border border-slate-200 bg-white p-1 shadow-sm"
             >
               <Image
                 src={`/img/${oppositeLang}.png`}
@@ -120,8 +121,8 @@ const Navigation = () => {
             </motion.button>
 
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => setIsInfoOpen(true)}
               className={iconClass}
             >
@@ -131,7 +132,7 @@ const Navigation = () => {
             {/* Mobile menu */}
             <button
               onClick={() => setIsOpen(true)}
-              className="md:hidden p-2"
+              className="md:hidden rounded-full p-2 text-slate-800 hover:bg-slate-100"
             >
               <Menu />
             </button>
@@ -156,16 +157,13 @@ const Navigation = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed top-0 right-0 h-full w-72 bg-gray-900 text-white z-50 p-6 flex flex-col space-y-6"
+            className="fixed top-0 right-0 z-50 flex h-full w-72 flex-col space-y-6 border-l border-slate-700 bg-slate-900 p-6 text-white"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "spring", stiffness: 260, damping: 25 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            <button
-              className="self-end"
-              onClick={() => setIsOpen(false)}
-            >
+            <button className="self-end" onClick={() => setIsOpen(false)}>
               <X />
             </button>
 
@@ -207,7 +205,7 @@ const Navigation = () => {
       <AnimatePresence>
         {isInfoOpen && (
           <motion.div
-            className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-6"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-6 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -216,9 +214,10 @@ const Navigation = () => {
             }
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.97, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="bg-white rounded-xl p-8 max-w-xl text-center"
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="relative max-w-xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm"
             >
               <button
                 className="absolute top-6 right-6"
@@ -227,12 +226,8 @@ const Navigation = () => {
                 <X />
               </button>
 
-              <h2 className="text-2xl font-bold mb-4">
-                {labels.infoTitle}
-              </h2>
-              <p className="text-gray-600 leading-relaxed">
-                {labels.siteInfo}
-              </p>
+              <h2 className="text-2xl font-bold mb-4">{labels.infoTitle}</h2>
+              <p className="text-gray-600 leading-relaxed">{labels.siteInfo}</p>
             </motion.div>
           </motion.div>
         )}

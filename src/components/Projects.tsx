@@ -19,7 +19,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   return (
     <section className="py-14 px-4">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-8 text-gray-800">
+        <h2 className="mb-8 text-3xl font-semibold tracking-tight text-slate-900">
           {textContent.projects[language]}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">

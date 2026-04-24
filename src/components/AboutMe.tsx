@@ -60,21 +60,21 @@ Tällä hetkellä etsin aktiivisesti harjoittelu- tai kokopäivätyömahdollisuu
 };
 
 const containerVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 14 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.3,
+      duration: 0.24,
       ease: "easeOut",
       when: "beforeChildren",
-      staggerChildren: 0.08,
+      staggerChildren: 0.05,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 8 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -90,14 +90,14 @@ export default function AboutMe() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-slate-100 shadow-xl px-8 py-10 sm:px-10 sm:py-12"
+        className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-8 py-10 shadow-sm sm:px-10 sm:py-12"
       >
-        <div className="pointer-events-none absolute inset-0 opacity-60 [background:radial-gradient(circle_at_top,_rgba(59,130,246,0.08),transparent_55%),_radial-gradient(circle_at_bottom,_rgba(14,165,233,0.08),transparent_55%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-slate-200" />
 
         <div className="relative z-10 flex flex-col gap-10 md:grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.2fr)] md:gap-12">
           {/* Left column: heading, intro, highlights */}
           <motion.div variants={itemVariants} className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-medium text-slate-600 shadow-sm backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
               {textContent.introTag[lang]}
             </div>
@@ -119,7 +119,7 @@ export default function AboutMe() {
                 {textContent.highlights[lang].map((item) => (
                   <li
                     key={item}
-                    className="rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur"
+                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700"
                   >
                     {item}
                   </li>
@@ -146,7 +146,7 @@ export default function AboutMe() {
                 </motion.p>
               ))}
 
-            <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <div className="flex items-center justify-between gap-2">
                 <h3 className="text-sm font-semibold text-slate-800">
                   {textContent.keyFactsTitle[lang]}
