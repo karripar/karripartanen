@@ -2,46 +2,31 @@
   {
     "id": 1,
     "title": {
-      "en": "Weedify",
-      "fi": "Weedify"
+      "en": "Aspect (Work in Progress)",
+      "fi": "Aspect (Work in Progress)"
     },
     "solo": false,
     "description": {
-      "en": "Weedify is a recipe sharing platform that allows users to create, share, and discover recipes. It features a user-friendly interface, a robust search engine, and a community-driven approach to recipe sharing. Backend published in Azure.",
-      "fi": "Weedify on reseptien jakamiseen tarkoitettu alusta, jossa käyttäjät voivat luoda, jakaa ja löytää reseptejä. Se tarjoaa käyttäjäystävällisen käyttöliittymän, tehokkaan hakukoneen ja yhteisölähtöisen lähestymistavan. Backend julkaistu Azureen."
+      "en": "Aspect is a serverless application designed to provide users the ability to generate a virtual resume based on their skills and experience. The application utilizes Supabase for data storage and authentication, allowing users to create and manage their profiles securely. The frontend is built using React, providing a user-friendly interface for users to input their information and customize their virtual resumes. The application also includes features such as resume templates, skill assessments, and the ability to share a link to the generated resume.",
+      "fi": "Aspect on serverless-sovellus, joka tarjoaa käyttäjille mahdollisuuden luoda virtuaalisen ansioluettelon perustuen heidän taitoihinsa ja kokemukseensa. Sovellus hyödyntää Supabasea tietojen tallennukseen ja autentikointiin, mikä mahdollistaa käyttäjien profiilien luomisen ja hallinnan turvallisesti. Frontend on rakennettu Reactilla, tarjoten käyttäjäystävällisen käyttöliittymän, jossa käyttäjät voivat syöttää tietonsa ja mukauttaa virtuaalisia ansioluetteloitaan. Sovellus sisältää myös ominaisuuksia, kuten ansioluettelopohjat, taitojen arvioinnit ja mahdollisuuden jakaa linkki luotuun ansioluetteloon."
     },
-    "technologies": ["React Native", "Node.js", "TypeScript", "MariaDB"],
-    "url": "https://github.com/karripar/weedify-frontend",
-    "imageUrl": "img/weedify.png"
+    "technologies": ["React", "Supabase", "TypeScript", "Node.js", "D3.js", "Tailwind CSS"],
+    "url": "https://aspect-visualizer.vercel.app/",
+    "imageUrl": "img/aspect-banner.png"
   },
   {
     "id": 2,
     "title": {
-      "en": "MyLens",
-      "fi": "MyLens"
-    },
-    "solo": true,
-    "description": {
-      "en": "MyLens is a social media platform that allows users to share and discover media. It features a clean and modern design, a powerful search engine, and a community-driven approach. The platform enables users to follow, like, comment and save media as favorites. The project served as a preparation for the Weedify project.",
-      "fi": "MyLens on sosiaalisen median alusta, jossa käyttäjät voivat jakaa ja löytää mediaa. Se sisältää modernin käyttöliittymän, tehokkaan hakukoneen ja yhteisöpohjaisen rakenteen. Käyttäjät voivat seurata, tykätä, kommentoida ja tallentaa mediaa suosikkeihin. Projekti toimi valmistautumisena Weedify-projektiin."
-    },
-    "technologies": ["React", "Tailwind CSS", "Node.js", "TypeScript", "MariaDB"],
-    "url": "https://github.com/karripar/mylens-frontend",
-    "imageUrl": "img/mylens.png"
-  },
-  {
-    "id": 3,
-    "title": {
-      "en": "Tataki - Sushi Restaurant",
-      "fi": "Tataki – Sushi-ravintola"
+      "en": "Go Exchange (Work in Progress)",
+      "fi": "Go Exchange (työn alla)"
     },
     "solo": false,
     "description": {
-      "en": "Tataki is a sushi restaurant website that showcases modern sushi dishes, offers online ordering, and provides information about the restaurant's history and philosophy. The website is designed to be visually appealing and easy to navigate. Backend published in Azure.",
-      "fi": "Tataki on sushiravintolan verkkosivusto, joka esittelee moderneja sushiruokia, tarjoaa verkkomyynnin ja kertoo ravintolan historiasta ja filosofiasta. Sivusto on visuaalisesti houkutteleva ja helppokäyttöinen. Backend julkaistu Azureen."
+      "en": "Go Exchange is a web application that connects students interested in exchange programs with people who have already participated in such programs. The platform allows users to create profiles, share their experiences, and find potential exchange partners. Users may find important dates and information considering the application process and support that comes with it. OpenAI AI-Chat integration has been added to enhance user experience. Instead of using OpenAI's vector store, we implemented a custom vector store using Milvus to store and retrieve exchange related documentation which I was responsible of along other tasks.",
+      "fi": "Go Exchange on verkkosovellus, joka yhdistää vaihto-ohjelmista kiinnostuneet opiskelijat henkilöihin, jotka ovat jo osallistuneet vaihto-ohjelmiin. Alusta mahdollistaa käyttäjien profiilien luomisen, kokemustensa jakamisen ja potentiaalisten vaihtokumppaneiden löytämisen. Käyttäjät voivat löytää tärkeitä päivämääriä ja tietoa hakuprosessista ja siihen liittyvästä tuesta. OpenAI AI-chat-integraatio on lisätty parantamaan käyttäjäkokemusta. OpenAI:n vektoritietokannan sijaan toteutimme oman vektorikannan Milvusilla vaihto-ohjelmiin liittyvien dokumenttien tallentamiseen ja hakemiseen josta olin vastuussa muiden tehtävien ohella."
     },
-    "technologies": ["HTML", "CSS", "TypeScript", "Node.js", "MariaDB"],
-    "url": "https://github.com/Elliriskala/Tataki",
-    "imageUrl": "img/tataki.png"
+    "technologies": ["React", "Next.js", "Tailwind CSS", "Node.js", "TypeScript", "MongoDB", "Milvus"],
+    "url": "https://github.com/karripar/go-exchange-server",
+    "imageUrl": "img/ge-banner.png"
   }
 ]

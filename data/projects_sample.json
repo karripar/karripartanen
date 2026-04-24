@@ -1,0 +1,49 @@
+[
+    {
+      "id": 1,
+      "title": {
+        "en": "Weedify",
+        "fi": "Weedify"
+      },
+      "solo": false,
+      "description": {
+        "en": "Weedify is a recipe sharing platform that allows users to create, share, and discover recipes. It features a user-friendly interface, a robust search engine, and a community-driven approach to recipe sharing. Backend published in Azure.",
+        "fi": "Weedify on reseptien jakamiseen tarkoitettu alusta, jossa käyttäjät voivat luoda, jakaa ja löytää reseptejä. Se tarjoaa käyttäjäystävällisen käyttöliittymän, tehokkaan hakukoneen ja yhteisölähtöisen lähestymistavan. Backend julkaistu Azureen."
+      },
+      "technologies": ["React Native", "Node.js", "TypeScript", "MariaDB"],
+      "url": "https://github.com/karripar/weedify-frontend",
+      "imageUrl": "img/weedify.png"
+    },
+    {
+      "id": 2,
+      "title": {
+        "en": "MyLens",
+        "fi": "MyLens"
+      },
+      "solo": true,
+      "description": {
+        "en": "MyLens is a social media platform that allows users to share and discover media. It features a clean and modern design, a powerful search engine, and a community-driven approach. The platform enables users to follow, like, comment and save media as favorites. The project served as a preparation for the Weedify project.",
+        "fi": "MyLens on sosiaalisen median alusta, jossa käyttäjät voivat jakaa ja löytää mediaa. Se sisältää modernin käyttöliittymän, tehokkaan hakukoneen ja yhteisöpohjaisen rakenteen. Käyttäjät voivat seurata, tykätä, kommentoida ja tallentaa mediaa suosikkeihin. Projekti toimi valmistautumisena Weedify-projektiin."
+      },
+      "technologies": ["React", "Tailwind CSS", "Node.js", "TypeScript", "MariaDB"],
+      "url": "https://github.com/karripar/mylens-frontend",
+      "imageUrl": "img/mylens.png"
+    },
+    {
+      "id": 3,
+      "title": {
+        "en": "Go Exchange (Work in Progress)",
+        "fi": "Go Exchange (työn alla)"
+      },
+      "solo": false,
+      "description": {
+        "en": "Go Exchange is a web application that connects students interested in exchange programs with people who have already participated in such programs. The platform allows users to create profiles, share their experiences, and find potential exchange partners. Users may find important dates and information considering the application process and support that comes with it. AI-Chat integration has been added to enhance user experience.",
+        "fi": "Go Exchange on verkkosovellus, joka yhdistää vaihto-ohjelmista kiinnostuneet opiskelijat henkilöihin, jotka ovat jo osallistuneet vaihto-ohjelmiin. Alusta mahdollistaa käyttäjien profiilien luomisen, kokemustensa jakamisen ja potentiaalisten vaihtokumppaneiden löytämisen. Käyttäjät voivat löytää tärkeitä päivämääriä ja tietoa hakuprosessista ja siihen liittyvästä tuesta. AI-chat-integraatio on lisätty parantamaan käyttäjäkokemusta."
+      },
+      "technologies": ["React", "Next.js", "Tailwind CSS", "Node.js", "TypeScript", "MongoDB"],
+      "url": "https://github.com/karripar/va-backend",
+      "imageUrl": "img/wip.png"
+    }
+  ]
+  
+  

@@ -3,18 +3,13 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
-import { Menu, X, Wrench, Sun, Moon } from "lucide-react";
+import { Menu, X, Info } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const toggleInfo = () => setIsInfoOpen(!isInfoOpen);
 
   const { language, toggleLanguage } = useLanguage();
-
   const oppositeLang = language === "fi" ? "en" : "fi";
 
   const labels = {
@@ -25,211 +20,216 @@ const Navigation = () => {
     close: language === "en" ? "Close" : "Sulje",
     siteInfo:
       language === "en"
-        ? "This site is a portfolio project built with Next.js, Tailwind CSS, and React. It features responsive design, multi-language support, and integrates social media links. Feel free to explore and contact me using the links in the navigation."
-        : "Tämä sivusto on portfolioprojekti, joka on rakennettu Next.js:llä, Tailwind CSS:llä ja Reactilla. Se sisältää responsiivisen suunnittelun, monikielisen tuen ja sosiaalisen median linkkien integroinnin. Voit tutustua sivustoon ja ottaa minuun yhteyttä navigaation linkkien kautta.",
+        ? "This site is a portfolio project built with Next.js, Tailwind CSS, and React. It features responsive design, multi-language support, and integrates social media links."
+        : "Tämä sivusto on portfolioprojekti, joka on rakennettu Next.js:llä, Tailwind CSS:llä ja Reactilla. Se sisältää responsiivisen suunnittelun, monikielisen tuen ja sosiaalisen median linkkien integroinnin.",
   };
 
-  useEffect(() => {
-    if (isInfoOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+  /* ----------------------------- effects ----------------------------- */
 
-    // Cleanup in case component unmounts
+  useEffect(() => {
+    document.body.style.overflow = isOpen || isInfoOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isInfoOpen]);
+  }, [isOpen, isInfoOpen]);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    setIsDarkMode(document.documentElement.classList.contains("dark"));
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+        setIsInfoOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
   }, []);
-  
 
-  const toggleTheme = () => {
-    const newTheme = !isDarkMode ? "" : "light";
-    setIsDarkMode(!isDarkMode);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.classList.toggle("dark", !isDarkMode);
-  }
+  /* ----------------------------- animations ----------------------------- */
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 10 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { delay: i * 0.04, duration: 0.18 },
+    }),
+  };
+
+  const iconClass =
+    "relative rounded-full p-2 text-slate-800 hover:bg-slate-100/80 transition-colors duration-200";
+
+  /* ----------------------------- render ----------------------------- */
+  
 
   return (
     <>
+      {/* ================= NAVBAR ================= */}
       <motion.nav
-        className="bg-gray-100 text-gray-900 shadow-md fixed top-0 left-0 right-0 z-50"
-        role="navigation"
-        aria-label="Main Navigation"
-        initial={{ opacity: 0, y: -20 }}
+        className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 bg-white shadow-[0_1px_0_0_rgba(15,23,42,0.04)]"
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
       >
-        <div className="relative max-w-6xl mx-auto px-4 flex items-center h-16">
-          {/* Icons group centered absolutely - desktop only */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 space-x-8 items-center hidden md:flex">
-            <a
+        <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-center px-4">
+          {/* Logo */}
+
+          {/* Desktop center icons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <motion.a
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
               href="https://github.com/karripar"
               target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-gray-400 transition text-4xl"
+              className={iconClass}
             >
-              <FaGithub />
-            </a>
-            <a
+              <FaGithub className="text-2xl text-gray-700" />
+            </motion.a>
+
+            <motion.a
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
               href="https://www.linkedin.com/in/karri-partanen-39768b165/"
               target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 transition text-4xl"
+              className={iconClass}
             >
-              <FaLinkedin />
-            </a>
-            <a
-              href="mailto:karripartanen25@gmail.com"
-              className="text-gray-700 hover:text-gray-400 transition text-4xl"
+              <FaLinkedin className="text-2xl text-sky-700" />
+            </motion.a>
+
+            <motion.a
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              href="mailto:karri.t.partanen@gmail.com"
+              className={iconClass}
             >
-              <FaEnvelope />
-            </a>
-            <motion.button
-              onClick={toggleLanguage}
-              whileTap={{ scale: 0.9 }}
-              whileHover={{ scale: 1.1 }}
-              className="focus:outline-none bg-transparent p-0 hover:opacity-80 transition"
-              aria-label="Toggle language"
-            >
-              <Image
-                src={`img/${oppositeLang}.png`}
-                alt={`Switch to ${oppositeLang.toUpperCase()}`}
-                width={40}
-                height={40}
-              />
-            </motion.button>
+              <FaEnvelope className="text-2xl text-gray-700" />
+            </motion.a>
           </div>
 
-          {/* Wrench icon pinned right - always visible */}
-          <div className="ml-auto flex items-center space-x-4">
-            {/* Wrench icon */}
-            <button
-              onClick={toggleInfo}
-              aria-label="Site Information"
-              className="text-gray-700 hover:text-gray-400 transition text-3xl focus:outline-none"
+          {/* Right utilities */}
+          <div className="absolute right-4 flex items-center space-x-3">
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={toggleLanguage}
+              className="rounded-full border border-slate-200 bg-white p-1 shadow-sm"
             >
-              <Wrench />
-            </button>
+              <Image
+                src={`/img/${oppositeLang}.png`}
+                alt="language toggle"
+                width={28}
+                height={28}
+              />
+            </motion.button>
 
-            {/* Color theme toggle (light/dark)*/}
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle Theme"
-              className="text-gray-700 dark:text-gray-300 hover:text-gray-400 transition text-2xl focus:outline-none"
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setIsInfoOpen(true)}
+              className={iconClass}
             >
-              {isDarkMode ? (
-                <Sun className="w-6 h-6" />
-              ) : (
-                <Moon className="w-6 h-6" />
-              )}
-            </button>
+              <Info className="w-5 h-5" />
+            </motion.button>
 
-            {/* Mobile hamburger menu toggle - visible only on mobile */}
+            {/* Mobile menu */}
             <button
-              onClick={toggleMenu}
-              className="focus:outline-none focus:ring-2 focus:ring-white md:hidden"
-              aria-label="Toggle menu"
+              onClick={() => setIsOpen(true)}
+              className="md:hidden rounded-full p-2 text-slate-800 hover:bg-slate-100"
             >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              <Menu />
             </button>
           </div>
         </div>
-
-        {/* Mobile Menu - only visible on mobile */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              key="mobile-menu"
-              layout
-              className="md:hidden bg-gray-900 bg-opacity-70 backdrop-blur-md px-6 py-6 flex flex-col items-start space-y-6 shadow-lg overflow-hidden"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-            >
-              <a
-                href="https://github.com/karripar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-200 flex hover:text-gray-400 transition text-3xl"
-                onClick={() => setIsOpen(false)}
-              >
-                <FaGithub />
-                <p className="ml-2 text-lg font-semibold">{labels.github}</p>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/karri-partanen-39768b165/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 flex hover:text-blue-800 transition text-3xl"
-                onClick={() => setIsOpen(false)}
-              >
-                <FaLinkedin />
-                <p className="ml-2 text-lg font-semibold">{labels.linkedin}</p>
-              </a>
-              <a
-                href="mailto:karripartanen25@gmail.com"
-                className="text-gray-200 flex hover:text-gray-400 transition text-3xl"
-                onClick={() => setIsOpen(false)}
-              >
-                <FaEnvelope />
-                <p className="ml-3 text-lg font-semibold">{labels.email}</p>
-              </a>
-              <motion.button
-                onClick={toggleLanguage}
-                whileTap={{ scale: 0.9 }}
-                whileHover={{ scale: 1.1 }}
-                className="focus:outline-none bg-transparent p-0 hover:opacity-80 transition"
-                aria-label="Toggle language"
-              >
-                <Image
-                  src={`img/${oppositeLang}.png`}
-                  alt={`Switch to ${oppositeLang.toUpperCase()}`}
-                  width={40}
-                  height={40}
-                />
-              </motion.button>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </motion.nav>
 
-      {/* Full screen info modal */}
+      {/* ================= MOBILE BACKDROP ================= */}
       <AnimatePresence>
-        {isInfoOpen && (
+        {isOpen && (
           <motion.div
-            key="info-modal"
-            className="fixed inset-0 bg-gray-900 bg-opacity-95 flex flex-col items-center justify-center p-6 md:p-40 z-60 overflow-auto"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+            onClick={() => setIsOpen(false)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={(e) => {
-              // Optional: close modal on clicking outside content
-              if (e.target === e.currentTarget) toggleInfo();
-            }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* ================= MOBILE DRAWER ================= */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed top-0 right-0 z-50 flex h-full w-72 flex-col space-y-6 border-l border-slate-700 bg-slate-900 p-6 text-white"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            <button
-              onClick={toggleInfo}
-              className="self-end mb-4 text-gray-300 hover:text-white text-3xl focus:outline-none"
-              aria-label={labels.close}
-            >
+            <button className="self-end" onClick={() => setIsOpen(false)}>
               <X />
             </button>
 
-            <div className="max-w-3xl text-center text-gray-100">
-              <h2 className="text-4xl font-bold mb-6">{labels.infoTitle}</h2>
-              <p className="text-lg leading-relaxed">{labels.siteInfo}</p>
-            </div>
+            {[
+              {
+                icon: <FaGithub />,
+                label: labels.github,
+                href: "https://github.com/karripar",
+              },
+              {
+                icon: <FaLinkedin />,
+                label: labels.linkedin,
+                href: "https://www.linkedin.com/in/karri-partanen-39768b165/",
+              },
+              {
+                icon: <FaEnvelope />,
+                label: labels.email,
+                href: "mailto:karri.t.partanen@gmail.com",
+              },
+            ].map((item, i) => (
+              <motion.a
+                key={item.label}
+                custom={i}
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                href={item.href}
+                className="flex items-center space-x-3 text-lg"
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ================= INFO MODAL ================= */}
+      <AnimatePresence>
+        {isInfoOpen && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-6 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={(e) =>
+              e.currentTarget === e.target && setIsInfoOpen(false)
+            }
+          >
+            <motion.div
+              initial={{ scale: 0.97, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="relative max-w-xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm"
+            >
+              <button
+                className="absolute top-6 right-6"
+                onClick={() => setIsInfoOpen(false)}
+              >
+                <X />
+              </button>
+
+              <h2 className="text-2xl font-bold mb-4">{labels.infoTitle}</h2>
+              <p className="text-gray-600 leading-relaxed">{labels.siteInfo}</p>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,0 +1,67 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
+
+const tech = [
+  { name: "TypeScript", src: "/icons/TypeScript.svg" },
+  { name: "JavaScript", src: "/icons/JavaScript.svg" },
+  { name: "React", src: "/icons/React.svg" },
+  { name: "Next.js", src: "/icons/Next.js.svg" },
+  { name: "Node.js", src: "/icons/Node.js.svg" },
+  { name: "Tailwind CSS", src: "/icons/TailwindCSS.svg" },
+  { name: "Three.js", src: "/icons/Three.js.svg" },
+  { name: "Git", src: "/icons/Git.svg" },
+  { name: "Python", src: "/icons/Python.svg" },
+  { name: "MongoDB", src: "/icons/MongoDB.svg" },
+  { name: "VS Code", src: "/icons/VSCode.svg" },
+  { name: "MySQL", src: "/icons/MySQL.svg" },
+  { name: "Docker", src: "/icons/Docker.svg" },
+  { name: "Figma", src: "/icons/Figma.svg" },
+  { name: "Linux", src: "/icons/Linux.svg" },
+  { name: "Blender", src: "/icons/Blender.svg" },
+  { name: "Azure", src: "/icons/Azure.svg" },
+];
+
+const translations = {
+  en: {
+    techStack: "Tech Stack",
+    description:
+      "Below you will not find all the technologies and tools I use, but these are the ones I work with the most.",
+  },
+  fi: {
+    techStack: "Teknologiat",
+    description:
+      "Alta et löydä kaikkia käyttämiäni teknologioita ja työkaluja, mutta nämä ovat niitä, joiden kanssa työskentelen eniten.",
+  },
+};
+
+export default function TechStack() {
+  const { language } = useLanguage();
+  return (
+    <section className="mx-auto max-w-6xl rounded-3xl border border-slate-200 bg-white px-6 py-12 shadow-sm">
+      <h2 className="mb-6 text-3xl font-semibold tracking-tight text-slate-900">
+        {translations[language].techStack}
+      </h2>
+      <p className="mb-10 max-w-3xl text-slate-600">
+        {translations[language].description}
+      </p>
+
+      <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6">
+        {tech.map((t) => (
+          <div
+            key={t.name}
+            className="flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 p-4 grayscale transition duration-200 hover:grayscale-0"
+            title={t.name}
+          >
+            <Image
+              src={t.src}
+              alt={t.name}
+              width={52}
+              height={52}
+              className="object-contain"
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
