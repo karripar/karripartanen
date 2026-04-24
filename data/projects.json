@@ -2,17 +2,17 @@
   {
     "id": 1,
     "title": {
-      "en": "Aspect (Work in Progress)",
-      "fi": "Aspect (Work in Progress)"
+      "en": "Brain Dump",
+      "fi": "Brain Dump"
     },
     "solo": false,
     "description": {
-      "en": "Aspect is a serverless application designed to provide users the ability to generate a virtual resume based on their skills and experience. The application utilizes Supabase for data storage and authentication, allowing users to create and manage their profiles securely. The frontend is built using React, providing a user-friendly interface for users to input their information and customize their virtual resumes. The application also includes features such as resume templates, skill assessments, and the ability to share a link to the generated resume.",
-      "fi": "Aspect on serverless-sovellus, joka tarjoaa käyttäjille mahdollisuuden luoda virtuaalisen ansioluettelon perustuen heidän taitoihinsa ja kokemukseensa. Sovellus hyödyntää Supabasea tietojen tallennukseen ja autentikointiin, mikä mahdollistaa käyttäjien profiilien luomisen ja hallinnan turvallisesti. Frontend on rakennettu Reactilla, tarjoten käyttäjäystävällisen käyttöliittymän, jossa käyttäjät voivat syöttää tietonsa ja mukauttaa virtuaalisia ansioluetteloitaan. Sovellus sisältää myös ominaisuuksia, kuten ansioluettelopohjat, taitojen arvioinnit ja mahdollisuuden jakaa linkki luotuun ansioluetteloon."
+      "en": "Brain Dump is a personal document and information storage built with a local installation of Milvus vector store to store information in the form of vectors. Semantic search is applied to match queries to database records. PostgreSQL and frontend implementations will be added in the future. The program is ran on a local linux server behind a private network and is not publicly accessible due to my personal data.",
+      "fi": "Brain Dump on henkilökohtainen dokumentti- ja tietovarasto, joka on rakennettu paikallisella Milvus-vektoritietokannalla tietojen tallentamiseen vektoreiden muodossa. Semanttista hakua käytetään vastaamaan kyselyt tietokantatietoihin. PostgreSQL- ja käyttöliittymä-toteutukset lisätään tulevaisuudessa. Ohjelma ajetaan paikallisella Linux-palvelimella yksityisen verkon takana, eikä se ole julkisesti saatavilla henkilökohtaisen datani vuoksi."
     },
-    "technologies": ["React", "Supabase", "TypeScript", "Node.js", "D3.js", "Tailwind CSS"],
-    "url": "https://aspect-visualizer.vercel.app/",
-    "imageUrl": "img/aspect-banner.png"
+    "technologies": ["TypeScript", "Node.js", "Python", "Linux", "Docker", "Milvus", "PostgreSQL"],
+    "url": "https://github.com/karripar/local-brain",
+    "imageUrl": "img/milvus-logo.svg"
   },
   {
     "id": 2,

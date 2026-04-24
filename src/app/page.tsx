@@ -24,44 +24,52 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen text-slate-900">
+    <main className="min-h-screen bg-slate-50 text-slate-900">
       <Navigation />
 
       {/* ================= HERO ================= */}
       <Hero />
 
       {/* ================= ABOUT ================= */}
-      <AboutMe />
+      <div className="mx-auto max-w-6xl px-6 py-10 sm:py-14">
+        <AboutMe />
+      </div>
 
       {/* ================= SKILLS ================= */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
+      <section id="stack" className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
         <TechStack />
       </section>
 
       {/* ================= PROJECTS ================= */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
+      <section id="projects" className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
         <Projects projects={projects} />
       </section>
 
       {/* ================= CONTACT ================= */}
-      <section className="max-w-4xl mx-auto px-6 py-24">
+      <section
+        id="contact"
+        className="mx-auto max-w-5xl px-6 pb-20 pt-14 sm:pb-24 sm:pt-16"
+      >
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.28, ease: "easeOut" }}
-          className="rounded-3xl border border-slate-200/90 bg-slate-900 p-10 text-center text-white shadow-sm"
+          className="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm sm:p-10"
         >
-          <h2 className="text-3xl font-semibold mb-4">
+          <span className="mb-3 inline-flex rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
+            {language === "fi" ? "Yhteistyö" : "Let’s collaborate"}
+          </span>
+          <h2 className="mb-4 text-3xl font-semibold tracking-tight text-slate-900">
             {textContent.contactMe[language]}
           </h2>
-          <p className="mb-6 text-slate-300">
+          <p className="mx-auto mb-7 max-w-2xl text-slate-600">
             {textContent.contactText[language]}
           </p>
 
           <a
             href="mailto:karri.t.partanen@gmail.com"
-            className="inline-flex items-center gap-2 rounded-full border border-slate-500 bg-slate-100 px-6 py-3 font-medium text-slate-900 transition-colors duration-200 hover:bg-white"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-900 bg-slate-900 px-6 py-3 font-medium !text-white transition-colors duration-200 hover:bg-slate-800"
           >
             <Mail size={18} />
             {textContent.emailButton[language]}

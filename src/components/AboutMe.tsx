@@ -84,15 +84,22 @@ export default function AboutMe() {
   const lang = language === "fi" ? "fi" : "en";
 
   return (
-    <section id="about" className="max-w-5xl mx-auto px-6 py-24">
+    <section id="about" className="py-2">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-8 py-10 shadow-sm sm:px-10 sm:py-12"
+        className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10"
       >
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-slate-200" />
+        <div className="mb-8 flex items-center justify-between border-b border-slate-200 pb-4">
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+            {textContent.aboutMeHeading[lang]}
+          </h2>
+          <span className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600">
+            {lang === "fi" ? "Profiili" : "Profile"}
+          </span>
+        </div>
 
         <div className="relative z-10 flex flex-col gap-10 md:grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.2fr)] md:gap-12">
           {/* Left column: heading, intro, highlights */}
@@ -103,9 +110,6 @@ export default function AboutMe() {
             </div>
 
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-                {textContent.aboutMeHeading[lang]}
-              </h2>
               <p className="mt-3 text-base text-slate-600 sm:text-lg">
                 {textContent.introLine[lang]}
               </p>
