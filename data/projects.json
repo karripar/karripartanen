@@ -5,7 +5,7 @@
       "en": "Brain Dump",
       "fi": "Brain Dump"
     },
-    "solo": false,
+    "solo": true,
     "description": {
       "en": "Brain Dump is a personal document and information storage built with a local installation of Milvus vector store to store information in the form of vectors. Semantic search is applied to match queries to database records. PostgreSQL and frontend implementations will be added in the future. The program is ran on a local linux server behind a private network and is not publicly accessible due to my personal data.",
       "fi": "Brain Dump on henkilökohtainen dokumentti- ja tietovarasto, joka on rakennettu paikallisella Milvus-vektoritietokannalla tietojen tallentamiseen vektoreiden muodossa. Semanttista hakua käytetään vastaamaan kyselyt tietokantatietoihin. PostgreSQL- ja käyttöliittymä-toteutukset lisätään tulevaisuudessa. Ohjelma ajetaan paikallisella Linux-palvelimella yksityisen verkon takana, eikä se ole julkisesti saatavilla henkilökohtaisen datani vuoksi."
