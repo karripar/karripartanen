@@ -5,7 +5,7 @@
       "en": "ICT Chatbot (Work in Progress)",
       "fi": "ICT Chatbot (työn alla)"
     },
-    "solo": false,
+    "solo": true,
     "description": {
       "en": "ICT Chatbot is an AI and RAG powered chatbot that provides information about ICT-related topics and course information to students. The chatbot is built using PostgreSQL and PGVector for data storage and retrieval, and it utilizes OpenAI's GPT-4 model for natural language understanding and generation. The chatbot is designed to assist students in finding relevant information quickly and efficiently, enhancing their learning experience.",
       "fi": "ICT Chatbot on tekoälyyn ja RAG:iin perustuva chatbot, joka tarjoaa opiskelijoille tietoa ICT-aiheista ja kurssitiedoista. Chatbot on rakennettu käyttämällä PostgreSQL:ää ja PGVectoria tietojen tallentamiseen ja hakemiseen, ja se hyödyntää OpenAI:n GPT-4-mallia luonnollisen kielen ymmärtämiseen ja tuottamiseen. Chatbot on suunniteltu auttamaan opiskelijoita löytämään relevanttia tietoa nopeasti ja tehokkaasti, parantaen heidän oppimiskokemustaan."
