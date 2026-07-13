@@ -32,6 +32,14 @@ const textContent = {
     en: "View Project",
     fi: "Näytä projekti",
   },
+  sourceUnavailable: {
+    en: "Source code not available",
+    fi: "Lähdekoodi ei ole saatavilla",
+  },
+  workProject: {
+    en: "Work project (private GitLab)",
+    fi: "Työprojekti (yksityinen GitLab)",
+  },
   readMore: {
     en: "Read more",
     fi: "Lue lisää",
@@ -151,21 +159,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           {/* CTA aligned bottom */}
           <div className="mt-auto flex justify-between items-center gap-2 text-white">
             <span className="hidden text-[11px] text-slate-500 sm:inline">
-              {language === "fi"
-                ? "Avaa projektin uudessa välilehdessä"
-                : "Opens project in a new tab"}
+              {project.url
+                ? language === "fi"
+                  ? "Avaa projektin uudessa välilehdessä"
+                  : "Opens project in a new tab"
+                : textContent.workProject[language]}
             </span>
 
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-white transition-colors duration-200 hover:bg-slate-800 sm:px-4 sm:py-1.5 sm:text-sm"
-              aria-label={`View project: ${project.title[language]}`}
-            >
-              {textContent.viewProject[language]}
-              <ArrowBigRightDashIcon className="w-4 h-4" />
-            </a>
+            {project.url ? (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-white transition-colors duration-200 hover:bg-slate-800 sm:px-4 sm:py-1.5 sm:text-sm"
+                aria-label={`View project: ${project.title[language]}`}
+              >
+                {textContent.viewProject[language]}
+                <ArrowBigRightDashIcon className="w-4 h-4" />
+              </a>
+            ) : (
+              <span className="inline-flex items-center rounded-full border border-slate-300 bg-slate-400 px-3.5 py-1.5 text-xs font-medium text-white sm:px-4 sm:py-1.5 sm:text-sm">
+                {textContent.sourceUnavailable[language]}
+              </span>
+            )}
           </div>
         </div>
       </div>

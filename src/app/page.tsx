@@ -15,12 +15,12 @@ export default function Home() {
   const { language } = useLanguage();
 
   const textContent = {
-    contactMe: { en: "Get in Touch", fi: "Ota yhteyttä" },
+    contactMe: { en: "Let\'s work together", fi: "Tehdään yhteistyötä" },
     contactText: {
-      en: "Want to work together or just say hi? Feel free to reach out!",
-      fi: "Haluatko työskennellä yhdessä tai vain sanoa hei? Ota rohkeasti yhteyttä!",
+      en: "Open to internship, full-time, and freelance opportunities. The fastest way to reach me is email.",
+      fi: "Olen avoin harjoittelu-, vakituisiin ja freelance-rooleihin. Nopein tapa tavoittaa minut on sähköposti.",
     },
-    emailButton: { en: "Email Me", fi: "Lähetä sähköpostia" },
+    emailButton: { en: "Send email", fi: "Lähetä sähköposti" },
   };
 
   return (
@@ -31,24 +31,30 @@ export default function Home() {
       <Hero />
 
       {/* ================= ABOUT ================= */}
-      <div className="mx-auto max-w-6xl px-6 py-10 sm:py-14">
+      <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
         <AboutMe />
       </div>
 
       {/* ================= SKILLS ================= */}
-      <section id="stack" className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
+      <section
+        id="stack"
+        className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-14"
+      >
         <TechStack />
       </section>
 
       {/* ================= PROJECTS ================= */}
-      <section id="projects" className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
+      <section
+        id="projects"
+        className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-14"
+      >
         <Projects projects={projects} />
       </section>
 
       {/* ================= CONTACT ================= */}
       <section
         id="contact"
-        className="mx-auto max-w-5xl px-6 pb-20 pt-14 sm:pb-24 sm:pt-16"
+        className="mx-auto max-w-5xl px-5 pb-20 pt-10 sm:px-6 sm:pb-24 sm:pt-12"
       >
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -58,9 +64,9 @@ export default function Home() {
           className="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm sm:p-10"
         >
           <span className="mb-3 inline-flex rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
-            {language === "fi" ? "Yhteistyö" : "Let’s collaborate"}
+            {language === "fi" ? "Yhteydenotto" : "Contact"}
           </span>
-          <h2 className="mb-4 text-3xl font-semibold tracking-tight text-slate-900">
+          <h2 className="mb-3 text-3xl font-semibold tracking-tight text-slate-900">
             {textContent.contactMe[language]}
           </h2>
           <p className="mx-auto mb-7 max-w-2xl text-slate-600">

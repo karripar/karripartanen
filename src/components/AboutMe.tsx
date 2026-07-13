@@ -5,57 +5,40 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const textContent = {
   aboutMeHeading: { en: "About Me", fi: "Tietoa minusta" },
-  introTag: {
-    en: "Web developer · Constant learner · Team player",
-    fi: "Web-kehittäjä · Jatkuva oppija · Tiimipelaaja",
-  },
+  introTag: { en: "Developer profile", fi: "Kehittäjäprofiili" },
   introLine: {
-    en: "I design and build responsive, user-focused web experiences with a strong eye for detail and collaboration at the core.",
-    fi: "Suunnittelen ja toteutan responsiivisia, käyttäjäkeskeisiä verkkosovelluksia tarkalla huomiolla yksityiskohtiin ja yhteistyöhön perustuen.",
+    en: "I am a fullstack-oriented web developer who focuses on shipping usable products with clean architecture and dependable execution.",
+    fi: "Olen fullstack-painotteinen web-kehittäjä, joka keskittyy toimiviin tuotteisiin, selkeään arkkitehtuuriin ja luotettavaan toteutukseen.",
   },
-  highlightTitle: { en: "Highlights", fi: "Vahvuuteni" },
-  highlights: {
+  focusTitle: { en: "What I bring", fi: "Mitä tuon tiimiin" },
+  focusItems: {
     en: [
-      "Frontend-focused fullstack developer but a passion for backend and infrastructure too",
-      "Comfortable in international, customer-facing roles",
-      "Experience with project management and Agile workflows",
-      "Always experimenting with new tools and workflows",
+      "Frontend craftsmanship with practical backend support",
+      "Clear communication in international team environments",
+      "Hands-on delivery mindset from planning to release",
     ],
     fi: [
-      "Frontend-painotteinen fullstack-kehittäjä mutta intohimo myös backendia ja infrastruktuuria kohtaan",
-      "Luonteva kansainvälisissä rooleissa, sekä asiakasrajapinnassa",
-      "Kokemusta projektinhallintatehtävistä ja Agile-työskentelystä",
-      "Kokeilen mielelläni uusia työkaluja ja teknologioita",
+      "Huolellinen frontend-osaaminen ja käytännönläheinen backend ammattitaito",
+      "Selkeä viestintä kansainvälisissä tiimiympäristöissä",
+      "Huolellinen työote suunnittelusta julkaisuun",
     ],
   },
-  keyFactsTitle: { en: "A bit more", fi: "Lisää minusta" },
-  keyFacts: {
+  extraInformation: {
+    en: ["In my free time you may find me from the gym, on a hiking trail, building computers or from the closest record store digging for classic vinyls."],
+    fi: ["Vapaa-ajallani minut voi löytää kuntosalilta, vaelluspolulta, rakentamasta tietokoneita tai lähimmästä vinyylikaupasta etsimästä klassikkolevyjä."],
+  },
+  snapshotTitle: { en: "Quick Snapshot", fi: "Pikayhteenveto" },
+  snapshotItems: {
     en: [
-      "Background in customer service and multicultural teams",
-      "Enjoy building PCs and configuring hardware",
-      "Actively looking for internship or full-time roles in tech",
+      "ICT Engineering background",
+      "Experience in Agile and project collaboration",
+      "Open to internship and full-time opportunities",
     ],
     fi: [
-      "Taustaa asiakaspalvelusta ja monikulttuurisista tiimeistä",
-      "Pidän tietokoneiden kasaamisesta ja laitteiston konfiguroinnista",
-      "Etsin aktiivisesti harjoittelu- tai kokopäivätyöpaikkaa tekniseltä alalta",
+      "ICT-insinööritausta",
+      "Kokemusta Agile-työstä ja projektikoordinaatiosta",
+      "Avoin harjoittelu- ja kokopäivärooleille",
     ],
-  },
-  aboutMe: {
-    en: `I am a dedicated web developer with a strong focus on creating responsive and user-centric web applications. My expertise lies in problem-solving, exploring emerging technologies, and contributing to impactful fullstack projects.
-
-In addition to my technical skills, I have experience working in diverse, international environments. This has improved my communication and teamwork abilities, which I bring to every project.
-
-I am passionate about continuous learning, whether it's building computers to deepen my understanding of hardware or staying updated with the latest advancements in technology. Outside of work, I enjoy football, exploring nature, and engaging in creative pursuits like music.
-
-Currently, I am actively seeking internship or full-time opportunities in the tech industry where I can contribute my skills and grow professionally.`,
-    fi: `Olen omistautunut web-kehittäjä, joka keskittyy responsiivisten ja käyttäjäystävällisten verkkosovellusten luomiseen. Erityisosaamistani ovat ongelmanratkaisu, uusien teknologioiden tutkiminen ja merkityksellisiin fullstack-projekteihin osallistuminen.
-
-Teknisten taitojeni lisäksi minulla on kokemusta työskentelystä monimuotoisissa, kansainvälisissä ympäristöissä. Tämä on kehittänyt viestintä- ja tiimityötaitojani, joita hyödynnän kaikissa projekteissani.
-
-Olen intohimoinen jatkuvan oppimisen suhteen, olipa kyse tietokoneiden rakentamisesta komponenttien syvällisemmän ymmärtämisen vuoksi tai uusimpien teknologisten kehitysten seuraamisesta. Vapaa-ajallani nautin jalkapallosta, luonnossa liikkumisesta ja musiikista.
-
-Tällä hetkellä etsin aktiivisesti harjoittelu- tai kokopäivätyömahdollisuuksia tekniseltä alalta, joissa voin hyödyntää taitojani ja kehittyä ammatillisesti.`,
   },
 };
 
@@ -81,8 +64,6 @@ const itemVariants = {
 export default function AboutMe() {
   const { language } = useLanguage();
 
-  const lang = language === "fi" ? "fi" : "en";
-
   return (
     <section id="about" className="py-2">
       <motion.div
@@ -92,81 +73,62 @@ export default function AboutMe() {
         viewport={{ once: true, amount: 0.3 }}
         className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10"
       >
-        <div className="mb-8 flex items-center justify-between border-b border-slate-200 pb-4">
+        <div className="mb-6 flex items-center justify-between border-b border-slate-200 pb-4">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            {textContent.aboutMeHeading[lang]}
+            {textContent.aboutMeHeading[language]}
           </h2>
           <span className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600">
-            {lang === "fi" ? "Profiili" : "Profile"}
+            {textContent.introTag[language]}
           </span>
         </div>
 
-        <div className="relative z-10 flex flex-col gap-10 md:grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.2fr)] md:gap-12">
-          {/* Left column: heading, intro, highlights */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              {textContent.introTag[lang]}
-            </div>
+        <div className="relative z-10 grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:gap-8">
+          <motion.div variants={itemVariants} className="space-y-5">
+            <p className="text-base leading-relaxed text-slate-700 sm:text-lg">
+              {textContent.introLine[language]}
+            </p>
 
             <div>
-              <p className="mt-3 text-base text-slate-600 sm:text-lg">
-                {textContent.introLine[lang]}
+              <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
+                {textContent.focusTitle[language]}
+              </h3>
+              <ul className="mt-3 space-y-2 text-sm text-slate-700 sm:text-base">
+                {textContent.focusItems[language].map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-900" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 sm:text-base">
+                {textContent.extraInformation[language]}
               </p>
             </div>
-
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                {textContent.highlightTitle[lang]}
-              </h3>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {textContent.highlights[lang].map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </motion.div>
+  
 
-          {/* Right column: detailed text split + key facts */}
           <motion.div
             variants={itemVariants}
-            className="space-y-6 text-sm leading-relaxed text-slate-700 sm:text-base"
+            className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
           >
-            {textContent.aboutMe[lang]
-              .split("\n\n")
-              .slice(0, 3)
-              .map((paragraph, index) => (
-                <motion.p
-                  key={index}
-                  variants={itemVariants}
-                  className="text-slate-700"
-                >
-                  {paragraph}
-                </motion.p>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {textContent.snapshotTitle[language]}
+            </h3>
+            <ul className="mt-3 space-y-2 text-sm text-slate-700">
+              {textContent.snapshotItems[language].map((fact) => (
+                <li key={fact} className="flex gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-700" />
+                  <span>{fact}</span>
+                </li>
               ))}
+            </ul>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="text-sm font-semibold text-slate-800">
-                  {textContent.keyFactsTitle[lang]}
-                </h3>
-                <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-emerald-600">
-                  {lang === "fi" ? "Pikakatsaus" : "Quick snapshot"}
-                </span>
-              </div>
-              <ul className="mt-3 space-y-2 text-sm text-slate-700">
-                {textContent.keyFacts[lang].map((fact) => (
-                  <li key={fact} className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-emerald-500" />
-                    <span>{fact}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="mt-5 rounded-xl border border-slate-200 bg-white p-3 text-sm text-slate-600">
+              {language === "fi"
+                ? "Yhdistän teknisen toteutuksen, käyttäjälähtöisen ajattelun ja sujuvan yhteistyön."
+                : "I combine technical execution, user-centered thinking, and smooth collaboration."}
             </div>
           </motion.div>
         </div>

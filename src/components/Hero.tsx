@@ -7,30 +7,31 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const textContent = {
-  eyebrow: { en: "Portfolio 2026", fi: "Portfolio 2026" },
+  eyebrow: { en: "Web Developer Portfolio", fi: "Web-kehittäjän portfolio" },
   greeting: { en: "Hi, I'm Karri.", fi: "Hei, olen Karri." },
   roleLine: {
-    en: "Web Developer | ICT Engineer | Fullstack Enthusiast",
-    fi: "Web-kehittäjä | ICT-insinööri | Fullstack-intoilija",
+    en: "I build clear, fast, and practical web products. Currently working as a Software Engineer trainee at Metropolia University of Applied Sciences.",
+    fi: "Rakennan selkeitä, nopeita ja käytännöllisiä verkkotuotteita. Tällä hetkellä työskentelen ohjelmistokehittäjänä harjoittelijana Metropolian ammattikorkeakoulussa.",
   },
   intro: {
-    en: "I design and build practical digital products with clear architecture, thoughtful UX, and scalable implementation.",
-    fi: "Suunnittelen ja toteutan käytännöllisiä digitaalisia tuotteita selkeällä arkkitehtuurilla, harkitulla UX:llä ja skaalautuvalla toteutuksella.",
+    en: "Fullstack-focused developer with an ICT engineering background. I turn ideas into maintainable products with strong UX and reliable delivery.",
+    fi: "Fullstack-painotteinen kehittäjä ICT-insinööritaustalla. Muutan ideat ylläpidettäviksi tuotteiksi, joissa UX ja luotettava toteutus ovat keskiössä.",
   },
   contact: { en: "Contact", fi: "Yhteystiedot" },
-  scrollDown: { en: "More about me", fi: "Lisää minusta" },
+  availability: { en: "Open to work", fi: "Avoin työmahdollisuuksille" },
+  location: { en: "Based in Finland", fi: "Sijainti Suomi" },
 };
 
 export default function Hero() {
   const { language } = useLanguage();
 
   return (
-    <section className="relative flex min-h-screen items-center px-6 pb-12 pt-24 sm:pt-28">
+    <section className="relative flex min-h-[88vh] items-center px-5 pb-8 pt-24 sm:px-6 sm:pt-28">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.28, ease: "easeOut" }}
-        className="relative z-10 mx-auto grid w-full max-w-6xl gap-8 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center"
+        className="relative z-10 mx-auto grid w-full max-w-6xl gap-8 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center"
       >
         <div>
           <span className="inline-flex rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
@@ -41,11 +42,11 @@ export default function Hero() {
             {textContent.greeting[language]}
           </h1>
 
-          <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-slate-600 sm:text-base">
+          <p className="mt-4 text-base font-medium text-slate-700 sm:text-lg">
             {textContent.roleLine[language]}
           </p>
 
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
             {textContent.intro[language]}
           </p>
 
@@ -62,6 +63,15 @@ export default function Hero() {
             >
               {textContent.contact[language]}
             </a>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
+              {textContent.availability[language]}
+            </span>
+            <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
+              {textContent.location[language]}
+            </span>
           </div>
         </div>
 
@@ -84,6 +94,7 @@ export default function Hero() {
             <a
               href="https://github.com/karripar"
               target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border border-slate-200 bg-white p-2.5 transition-colors duration-200 hover:bg-slate-100"
             >
               <FaGithub />
@@ -91,13 +102,18 @@ export default function Hero() {
             <a
               href="https://www.linkedin.com/in/karri-partanen-39768b165/"
               target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border border-slate-200 bg-white p-2.5 text-sky-700 transition-colors duration-200 hover:bg-slate-100"
             >
               <FaLinkedin />
             </a>
           </div>
 
-          
+          <p className="mt-5 text-center text-sm text-slate-600">
+            {language === "fi"
+              ? "Rakennan modernit web-ratkaisut ideasta julkaisuun."
+              : "I build modern web solutions from concept to launch."}
+          </p>
         </div>
       </motion.div>
     </section>

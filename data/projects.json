@@ -2,23 +2,23 @@
   {
     "id": 1,
     "title": {
-      "en": "Brain Dump",
-      "fi": "Brain Dump"
+      "en": "ICT Chatbot (Work in Progress)",
+      "fi": "ICT Chatbot (työn alla)"
     },
     "solo": false,
     "description": {
-      "en": "Brain Dump is a personal document and information storage built with a local installation of Milvus vector store to store information in the form of vectors. Semantic search is applied to match queries to database records. PostgreSQL and frontend implementations will be added in the future. The program is ran on a local linux server behind a private network and is not publicly accessible due to my personal data.",
-      "fi": "Brain Dump on henkilökohtainen dokumentti- ja tietovarasto, joka on rakennettu paikallisella Milvus-vektoritietokannalla tietojen tallentamiseen vektoreiden muodossa. Semanttista hakua käytetään vastaamaan kyselyt tietokantatietoihin. PostgreSQL- ja käyttöliittymä-toteutukset lisätään tulevaisuudessa. Ohjelma ajetaan paikallisella Linux-palvelimella yksityisen verkon takana, eikä se ole julkisesti saatavilla henkilökohtaisen datani vuoksi."
+      "en": "ICT Chatbot is an AI and RAG powered chatbot that provides information about ICT-related topics and course information to students. The chatbot is built using PostgreSQL and PGVector for data storage and retrieval, and it utilizes OpenAI's GPT-4 model for natural language understanding and generation. The chatbot is designed to assist students in finding relevant information quickly and efficiently, enhancing their learning experience.",
+      "fi": "ICT Chatbot on tekoälyyn ja RAG:iin perustuva chatbot, joka tarjoaa opiskelijoille tietoa ICT-aiheista ja kurssitiedoista. Chatbot on rakennettu käyttämällä PostgreSQL:ää ja PGVectoria tietojen tallentamiseen ja hakemiseen, ja se hyödyntää OpenAI:n GPT-4-mallia luonnollisen kielen ymmärtämiseen ja tuottamiseen. Chatbot on suunniteltu auttamaan opiskelijoita löytämään relevanttia tietoa nopeasti ja tehokkaasti, parantaen heidän oppimiskokemustaan."
     },
-    "technologies": ["TypeScript", "Node.js", "Python", "Linux", "Docker", "Milvus", "PostgreSQL"],
-    "url": "https://github.com/karripar/local-brain",
-    "imageUrl": "img/milvus-logo.svg"
+    "technologies": ["Python", "PostgreSQL", "PGVector", "OpenAI API", "React", "Next.js", "Tailwind CSS"],
+    "url": "",
+    "imageUrl": "img/postgre-logo.png"
   },
   {
     "id": 2,
     "title": {
-      "en": "Go Exchange (Work in Progress)",
-      "fi": "Go Exchange (työn alla)"
+      "en": "Go Exchange",
+      "fi": "Go Exchange"
     },
     "solo": false,
     "description": {

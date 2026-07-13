@@ -15,15 +15,15 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       fi: "Projektit",
     },
     intro: {
-      en: "Selected work focused on usability, performance, and scalable implementation.",
-      fi: "Valittuja töitä, joissa korostuvat käytettävyys, suorituskyky ja skaalautuva toteutus.",
+      en: "Selected work with clear goals, practical implementation, and user-centered design.",
+      fi: "Valittuja töitä, joissa korostuvat selkeät tavoitteet, käytännöllinen toteutus ja käyttäjien huomiointi.",
     },
   };
 
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white px-5 py-10 shadow-sm sm:px-8 sm:py-12">
+    <section className="rounded-3xl border border-slate-200 bg-white px-5 py-9 shadow-sm sm:px-8 sm:py-11">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-8 flex flex-col gap-3 border-b border-slate-200 pb-6 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-7 flex flex-col gap-3 border-b border-slate-200 pb-5 sm:flex-row sm:items-end sm:justify-between">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
             {textContent.projects[language]}
           </h2>
