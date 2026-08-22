@@ -14,10 +14,24 @@
   --accent-soft: #1f2937;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 body {
   background-color: var(--surface-base);
   color: var(--text-primary);
   font-family: var(--font-geist-sans), "Segoe UI", sans-serif;
+}
+
+@media (max-width: 768px) {
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
 }
 
 * {

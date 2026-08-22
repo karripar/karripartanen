@@ -64,6 +64,18 @@ const Navigation = () => {
     { label: labels.contact, href: "#contact" },
   ];
 
+  const navigateTo = (href: string) => {
+    const id = href.replace("#", "");
+    const section = document.getElementById(id);
+    if (!section) {
+      return;
+    }
+
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", href);
+    setIsOpen(false);
+  };
+
   /* ----------------------------- render ----------------------------- */
 
   return (
@@ -85,7 +97,15 @@ const Navigation = () => {
 
           <div className="hidden items-center gap-5 md:flex">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className={navLinkClass}>
+              <a
+                key={item.href}
+                href={item.href}
+                className={navLinkClass}
+                onClick={(event) => {
+                  event.preventDefault();
+                  navigateTo(item.href);
+                }}
+              >
                 {item.label}
               </a>
             ))}
@@ -147,7 +167,7 @@ const Navigation = () => {
             {/* Mobile menu */}
             <button
               onClick={() => setIsOpen(true)}
-              className="md:hidden rounded-full p-2 text-slate-800 hover:bg-slate-100"
+              className="md:hidden rounded-full p-2 text-slate-800 transition-colors duration-150 hover:bg-slate-100"
               aria-label="Open menu"
             >
               <Menu />
@@ -165,6 +185,7 @@ const Navigation = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.12 }}
           />
         )}
       </AnimatePresence>
@@ -177,7 +198,7 @@ const Navigation = () => {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.16, ease: "easeOut" }}
           >
             <button className="self-end" onClick={() => setIsOpen(false)}>
               <X />
@@ -188,7 +209,10 @@ const Navigation = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigateTo(item.href);
+                  }}
                   className="block rounded-lg px-2 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
                 >
                   {item.label}

@@ -10,12 +10,12 @@ const textContent = {
   eyebrow: { en: "Web Developer Portfolio", fi: "Web-kehittäjän portfolio" },
   greeting: { en: "Hi, I'm Karri.", fi: "Hei, olen Karri." },
   roleLine: {
-    en: "I build clear, fast, and practical web products. Currently working as a Software Engineer trainee at Metropolia University of Applied Sciences.",
-    fi: "Rakennan selkeitä, nopeita ja käytännöllisiä verkkotuotteita. Tällä hetkellä työskentelen ohjelmistokehittäjänä harjoittelijana Metropolian ammattikorkeakoulussa.",
+    en: "I build practical, fast, and maintainable web products.",
+    fi: "Rakennan käytännöllisiä, nopeita ja ylläpidettäviä verkkotuotteita.",
   },
   intro: {
-    en: "Fullstack-focused developer with an ICT engineering background. I turn ideas into maintainable products with strong UX and reliable delivery.",
-    fi: "Fullstack-painotteinen kehittäjä ICT-insinööritaustalla. Muutan ideat ylläpidettäviksi tuotteiksi, joissa UX ja luotettava toteutus ovat keskiössä.",
+    en: "Software Engineer trainee at Metropolia University of Applied Sciences.",
+    fi: "Ohjelmistokehittäjä-harjoittelija Metropolia ammattikorkeakoulussa.",
   },
   contact: { en: "Contact", fi: "Yhteystiedot" },
   availability: { en: "Open to work", fi: "Avoin työmahdollisuuksille" },
@@ -26,12 +26,12 @@ export default function Hero() {
   const { language } = useLanguage();
 
   return (
-    <section className="relative flex min-h-[88vh] items-center px-5 pb-8 pt-24 sm:px-6 sm:pt-28">
+    <section className="relative flex min-h-[84vh] items-center px-5 pb-8 pt-24 sm:px-6 sm:pt-28">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.28, ease: "easeOut" }}
-        className="relative z-10 mx-auto grid w-full max-w-6xl gap-8 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center"
+        transition={{ duration: 0.24, ease: "easeOut" }}
+        className="relative z-10 mx-auto grid w-full max-w-6xl gap-8 rounded-3xl border border-slate-200 bg-white p-7 sm:p-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-center"
       >
         <div>
           <span className="inline-flex rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
@@ -46,7 +46,7 @@ export default function Hero() {
             {textContent.roleLine[language]}
           </p>
 
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p className="mt-2 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
             {textContent.intro[language]}
           </p>
 
@@ -55,7 +55,7 @@ export default function Hero() {
               href="#projects"
               className="text-white inline-flex items-center rounded-full border border-slate-900 bg-slate-900 px-5 py-2.5 text-sm font-medium transition-colors duration-200 hover:bg-slate-800"
             >
-              {language === "fi" ? "Katso projektit" : "View projects"}
+              {language === "fi" ? "Katso projektini" : "View my projects"}
             </a>
             <a
               href="#contact"
@@ -75,13 +75,13 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-7">
-          <div className="mx-auto h-36 w-36 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50/60 p-6 sm:p-7">
+          <div className="mx-auto h-32 w-32 overflow-hidden rounded-2xl border border-slate-200 bg-white">
             <Image
               src="/img/karri.jpg"
               alt="Profile"
-              width={144}
-              height={144}
+              width={128}
+              height={128}
               className="h-full w-full object-cover"
             />
           </div>
@@ -109,10 +109,10 @@ export default function Hero() {
             </a>
           </div>
 
-          <p className="mt-5 text-center text-sm text-slate-600">
+          <p className="mt-4 text-center text-sm text-slate-600">
             {language === "fi"
-              ? "Rakennan modernit web-ratkaisut ideasta julkaisuun."
-              : "I build modern web solutions from concept to launch."}
+              ? "Rakennan web-ratkaisut ideasta julkaisuun."
+              : "I build web products from concept to launch."}
           </p>
         </div>
       </motion.div>

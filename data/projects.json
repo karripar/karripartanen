@@ -2,15 +2,66 @@
   {
     "id": 1,
     "title": {
-      "en": "ICT Chatbot (Work in Progress)",
-      "fi": "ICT Chatbot (työn alla)"
+      "en": "ICT School Chatbot (Work in Progress)",
+      "fi": "ICT School Chatbot (työn alla)"
     },
     "solo": true,
     "description": {
-      "en": "ICT Chatbot is an AI and RAG powered chatbot that provides information about ICT-related topics and course information to students. The chatbot is built using PostgreSQL and PGVector for data storage and retrieval, and it utilizes OpenAI's GPT-4 model for natural language understanding and generation. The chatbot is designed to assist students in finding relevant information quickly and efficiently, enhancing their learning experience.",
-      "fi": "ICT Chatbot on tekoälyyn ja RAG:iin perustuva chatbot, joka tarjoaa opiskelijoille tietoa ICT-aiheista ja kurssitiedoista. Chatbot on rakennettu käyttämällä PostgreSQL:ää ja PGVectoria tietojen tallentamiseen ja hakemiseen, ja se hyödyntää OpenAI:n GPT-4-mallia luonnollisen kielen ymmärtämiseen ja tuottamiseen. Chatbot on suunniteltu auttamaan opiskelijoita löytämään relevanttia tietoa nopeasti ja tehokkaasti, parantaen heidän oppimiskokemustaan."
+      "en": "A full-stack AI assistant platform that uses Retrieval-Augmented Generation (RAG) to provide context-aware answers from organization-specific knowledge sources. Built with a microservice architecture, the platform supports secure multi-tenant deployments, allowing multiple frontends to share the same backend while maintaining strict data isolation.",
+      "fi": "Full-stack AI-avustaja-alusta, joka hyödyntää Retrieval-Augmented Generation (RAG) -mallia tarjotakseen kontekstuaalisia vastauksia organisaatiokohtaisista tietolähteistä. Mikropalveluarkkitehtuuriin rakennettu alusta tukee turvallisia monivuokraympäristöjä, joissa useat frontendit voivat käyttää samaa backendiä säilyttäen tiukan datan eriytyksen."
     },
-    "technologies": ["Python", "PostgreSQL", "PGVector", "OpenAI API", "React", "Next.js", "Tailwind CSS"],
+    "features": [
+      "Retrieval-Augmented Generation (RAG)",
+      "Document chunking and embedding pipeline",
+      "Vector-based semantic search",
+      "Multi-tenant architecture",
+      "Tenant-based data isolation",
+      "HMAC-authenticated frontend-to-backend communication",
+      "Session-based authentication",
+      "Source synchronization service",
+      "REST API microservices",
+      "HTTPS deployment behind reverse proxy"
+    ],
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Python",
+      "PostgreSQL",
+      "Docker",
+      "PGVector",
+      "Docker Compose",
+      "Apache HTTP Server",
+      "REST API"
+    ],
+    "architecture": {
+      "frontend": "Next.js + React + TypeScript",
+      "backend": "Python microservices",
+      "database": "PostgreSQL",
+      "deployment": "Dockerized services on Linux VM behind Apache reverse proxy",
+      "security": [
+        "Session authentication",
+        "HMAC service authentication",
+        "Tenant verification",
+        "HTTPS"
+      ]
+    },
+    "highlights": {
+      "en": [
+        "Designed and implemented, together with my team, a production-style microservice architecture",
+        "Built a complete RAG pipeline for knowledge retrieval",
+        "Implemented secure tenant-based access control",
+        "Created server-side API proxying with authenticated service communication",
+        "Deployed and maintained the platform on a Linux virtual machine"
+      ],
+      "fi": [
+        "Suunnittelin ja toteutin yhdessä ryhmäni kanssa tuotantotyylisen mikropalveluarkkitehtuurin",
+        "Rakensin kokonaisen RAG-putken tiedonhakuun ",
+        "Toteutin turvallisen tenant-pohjaisen käyttöoikeuksien hallinnan",
+        "Rakensin palvelinpuolen API-reitityksen autentikoidulla palveluviestinnällä",
+        "Julkaisin ja ylläpidän alustaa Linux-virtuaalikoneessa"
+      ]
+    },
     "url": "",
     "imageUrl": "img/postgre-logo.png"
   },
@@ -22,10 +73,54 @@
     },
     "solo": false,
     "description": {
-      "en": "Go Exchange is a web application that connects students interested in exchange programs with people who have already participated in such programs. The platform allows users to create profiles, share their experiences, and find potential exchange partners. Users may find important dates and information considering the application process and support that comes with it. OpenAI AI-Chat integration has been added to enhance user experience. Instead of using OpenAI's vector store, we implemented a custom vector store using Milvus to store and retrieve exchange related documentation which I was responsible of along other tasks.",
-      "fi": "Go Exchange on verkkosovellus, joka yhdistää vaihto-ohjelmista kiinnostuneet opiskelijat henkilöihin, jotka ovat jo osallistuneet vaihto-ohjelmiin. Alusta mahdollistaa käyttäjien profiilien luomisen, kokemustensa jakamisen ja potentiaalisten vaihtokumppaneiden löytämisen. Käyttäjät voivat löytää tärkeitä päivämääriä ja tietoa hakuprosessista ja siihen liittyvästä tuesta. OpenAI AI-chat-integraatio on lisätty parantamaan käyttäjäkokemusta. OpenAI:n vektoritietokannan sijaan toteutimme oman vektorikannan Milvusilla vaihto-ohjelmiin liittyvien dokumenttien tallentamiseen ja hakemiseen josta olin vastuussa muiden tehtävien ohella."
+      "en": "A full-stack web application that connects students interested in exchange programs with students who have already participated in them. Users can create profiles, share experiences, find potential exchange partners, and access important information about the application process and available support. An OpenAI-powered AI chat was integrated to improve the user experience. Instead of relying on OpenAI's vector store, the project uses a custom Milvus-based vector database for storing and retrieving exchange-related documentation. I was responsible for implementing the vector database and document retrieval functionality alongside other development tasks.",
+      "fi": "Full-stack verkkosovellus, joka yhdistää vaihto-ohjelmista kiinnostuneet opiskelijat niihin jo osallistuneisiin opiskelijoihin. Käyttäjät voivat luoda profiileja, jakaa kokemuksia, löytää mahdollisia vaihtopareja ja saada tietoa hakuprosessista sekä saatavilla olevasta tuesta. Käyttökokemusta parantamaan integroitiin OpenAI-pohjainen AI-chat. OpenAI:n vector storen sijaan projekti käyttää räätälöityä Milvus-pohjaista vektorikantaa vaihtoon liittyvien dokumenttien tallennukseen ja hakuun. Vastasin vektorikannan sekä dokumenttien hakutoiminnallisuuden toteutuksesta muiden kehitystehtävien ohella."
     },
-    "technologies": ["React", "Next.js", "Tailwind CSS", "Node.js", "TypeScript", "MongoDB", "Milvus"],
+    "features": [
+      "Student profile management",
+      "Exchange experience sharing",
+      "Exchange partner discovery",
+      "Exchange application information",
+      "OpenAI-powered AI chat",
+      "Custom vector database",
+      "Document embedding and retrieval",
+      "Semantic search",
+      "Exchange documentation management"
+    ],
+    "technologies": [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Node.js",
+      "TypeScript",
+      "MongoDB",
+      "Milvus",
+      "OpenAI API"
+    ],
+    "architecture": {
+      "frontend": "React + Next.js + TypeScript + Tailwind CSS",
+      "backend": "Node.js",
+      "database": "MongoDB",
+      "vector_database": "Milvus",
+      "ai": "OpenAI API",
+      "deployment": "Web application with separate backend and vector database services"
+    },
+    "highlights": {
+      "en": [
+        "Developed a full-stack exchange student platform as part of a team",
+        "Implemented a custom Milvus-based vector database instead of using OpenAI's vector store",
+        "Built document embedding and semantic retrieval functionality for the AI chat",
+        "Integrated OpenAI-powered conversational functionality",
+        "Worked across frontend, backend, database, and AI-related components"
+      ],
+      "fi": [
+        "Kehitin tiimin osana full-stack vaihto-opiskelija-alustan",
+        "Toteutin räätälöidyn Milvus-pohjaisen vektorikannan OpenAI:n vector storen sijaan",
+        "Rakensin AI-chatille dokumenttien upotuksen ja semanttisen haun toiminnallisuudet",
+        "Integroin OpenAI-pohjaisen keskustelutoiminnallisuuden",
+        "Työskentelin frontendin, backendin, tietokannan ja AI-komponenttien parissa"
+      ]
+    },
     "url": "https://github.com/karripar/go-exchange-server",
     "imageUrl": "img/ge-banner.png"
   }

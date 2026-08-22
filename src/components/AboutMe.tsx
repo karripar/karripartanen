@@ -7,36 +7,38 @@ const textContent = {
   aboutMeHeading: { en: "About Me", fi: "Tietoa minusta" },
   introTag: { en: "Developer profile", fi: "Kehittäjäprofiili" },
   introLine: {
-    en: "I am a fullstack-oriented web developer who focuses on shipping usable products with clean architecture and dependable execution.",
-    fi: "Olen fullstack-painotteinen web-kehittäjä, joka keskittyy toimiviin tuotteisiin, selkeään arkkitehtuuriin ja luotettavaan toteutukseen.",
+    en: "Fullstack-oriented developer focused on clear architecture and reliable delivery.",
+    fi: "Fullstack-painotteinen kehittäjä, joka keskittyy selkeään arkkitehtuuriin ja luotettavaan toteutukseen.",
   },
-  focusTitle: { en: "What I bring", fi: "Mitä tuon tiimiin" },
+  focusTitle: { en: "What I bring", fi: "Vahvuuteni" },
   focusItems: {
     en: [
-      "Frontend craftsmanship with practical backend support",
-      "Clear communication in international team environments",
-      "Hands-on delivery mindset from planning to release",
+      "Strong frontend and backend skills with practical experience",
+      "Clear communication and dependable project delivery",
+      "Strong interest in CI/CD tools and virtual machines",
     ],
     fi: [
-      "Huolellinen frontend-osaaminen ja käytännönläheinen backend ammattitaito",
-      "Selkeä viestintä kansainvälisissä tiimiympäristöissä",
-      "Huolellinen työote suunnittelusta julkaisuun",
+      "Vahva frontend-, sekä backend-osaaminen käytännönläheisesti",
+      "Selkeä viestintä ja luotettava toimitus projektityössä",
+      "Vahva kiinnostus CI/CD-työkaluja ja virtuaalikoneita kohtaan",
     ],
   },
   extraInformation: {
-    en: ["In my free time you may find me from the gym, on a hiking trail, building computers or from the closest record store digging for classic vinyls."],
-    fi: ["Vapaa-ajallani minut voi löytää kuntosalilta, vaelluspolulta, rakentamasta tietokoneita tai lähimmästä vinyylikaupasta etsimästä klassikkolevyjä."],
+    en: ["Outside work, I enjoy the gym, collecting vinyl records, hiking, and metal concerts."],
+    fi: [
+      "Vapaa-ajalla viihdyn salilla, keräillen vinyylilevyjä, vaelluksilla ja metallikonserteissa.",
+    ],
   },
-  snapshotTitle: { en: "Quick Snapshot", fi: "Pikayhteenveto" },
+  snapshotTitle: { en: "Snapshot", fi: "Yhteenveto" },
   snapshotItems: {
     en: [
       "ICT Engineering background",
-      "Experience in Agile and project collaboration",
+      "Experience in Agile team collaboration",
       "Open to internship and full-time opportunities",
     ],
     fi: [
       "ICT-insinööritausta",
-      "Kokemusta Agile-työstä ja projektikoordinaatiosta",
+      "Kokemusta Agile-tiimityöstä",
       "Avoin harjoittelu- ja kokopäivärooleille",
     ],
   },
@@ -71,7 +73,7 @@ export default function AboutMe() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10"
+        className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-8 sm:px-10 sm:py-10"
       >
         <div className="mb-6 flex items-center justify-between border-b border-slate-200 pb-4">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
@@ -107,11 +109,10 @@ export default function AboutMe() {
               </p>
             </div>
           </motion.div>
-  
 
           <motion.div
             variants={itemVariants}
-            className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+            className="rounded-2xl border border-slate-200 p-5"
           >
             <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
               {textContent.snapshotTitle[language]}
@@ -125,7 +126,7 @@ export default function AboutMe() {
               ))}
             </ul>
 
-            <div className="mt-5 rounded-xl border border-slate-200 bg-white p-3 text-sm text-slate-600">
+            <div className="mt-5 rounded-xl border border-slate-200 p-3 text-sm text-slate-600">
               {language === "fi"
                 ? "Yhdistän teknisen toteutuksen, käyttäjälähtöisen ajattelun ja sujuvan yhteistyön."
                 : "I combine technical execution, user-centered thinking, and smooth collaboration."}
