@@ -51,9 +51,9 @@ const SkillTable: React.FC<Props> = ({ skills, techs }) => {
     <motion.div
       whileHover={{ y: -3 }}
       transition={{ duration: 0.16 }}
-      className="keen-slider__slide rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+      className="keen-slider__slide rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-6 shadow-sm"
     >
-      <p className="text-lg font-medium text-slate-800">{title}</p>
+      <p className="text-lg font-medium text-[var(--text)]">{title}</p>
     </motion.div>
   );
 
@@ -62,13 +62,13 @@ const SkillTable: React.FC<Props> = ({ skills, techs }) => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-10">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
+          <h2 className="text-3xl font-semibold tracking-tight text-[var(--text)]">
             {text.title[language]}
           </h2>
 
           <button
             onClick={() => setOpen((v) => !v)}
-            className="rounded-full p-2 transition-colors duration-200 hover:bg-slate-100"
+            className="rounded-full p-2 transition-colors duration-200 hover:bg-[var(--surface-raised)]"
             aria-label="toggle"
           >
             {open ? <ChevronUp /> : <ChevronDown />}
@@ -86,7 +86,7 @@ const SkillTable: React.FC<Props> = ({ skills, techs }) => {
             >
               {/* Skills */}
               <div>
-                <h3 className="mb-4 text-xl font-medium text-slate-700">
+                <h3 className="mb-4 text-xl font-medium text-[var(--muted)]">
                   {text.skills[language]}
                 </h3>
 
@@ -99,7 +99,7 @@ const SkillTable: React.FC<Props> = ({ skills, techs }) => {
 
               {/* Tech */}
               <div>
-                <h3 className="mb-4 text-xl font-medium text-slate-700">
+                <h3 className="mb-4 text-xl font-medium text-[var(--muted)]">
                   {text.tech[language]}
                 </h3>
 

@@ -10,35 +10,34 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const { language } = useLanguage();
 
   const textContent = {
-    projects: {
-      en: "Projects",
-      fi: "Projektit",
-    },
-    intro: {
-      en: "Selected projects from real product work.",
-      fi: "Valittuja projekteja aidosta tuotekehityksestä.",
+    label: { en: "02 / Selected projects", fi: "02 / Valitut projektit" },
+    title: {
+      en: "Work that solves real problems.",
+      fi: "Työtä, joka ratkaisee oikeita ongelmia.",
     },
   };
 
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white px-5 py-9 sm:px-8 sm:py-11">
-      <div className="mx-auto max-w-5xl">
-        <div className="mb-7 flex flex-col gap-2 border-b border-slate-200 pb-5 sm:flex-row sm:items-end sm:justify-between">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
-            {textContent.projects[language]}
-          </h2>
-          <p className="max-w-xl text-sm text-slate-600 sm:text-base">
-            {textContent.intro[language]}
-          </p>
+    <section className="projects section-pad" id="projects">
+      <div className="section-heading">
+        <div>
+          <div className="section-label">{textContent.label[language]}</div>
+          <h2>{textContent.title[language]}</h2>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 md:grid-cols-2">
-          {projects.map((project, index) => (
-            <div key={index} className="h-full">
-              <ProjectCard project={project} index={index} />
-            </div>
-          ))}
-        </div>
+      {/* 
+        Replaced the 2/3 column grid with a vertical flex column. 
+        This allows the horizontal ProjectCard layout to span the full container width.
+      */}
+      <div className="mt-12 flex flex-col gap-16 md:gap-24">
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={`${project.title}-${index}`}
+            project={project}
+            index={index}
+          />
+        ))}
       </div>
     </section>
   );

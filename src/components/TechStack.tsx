@@ -34,11 +34,11 @@ const translations = {
 export default function TechStack() {
   const { language } = useLanguage();
   return (
-    <section className="mx-auto max-w-6xl rounded-3xl border border-slate-200 bg-white px-6 py-10 shadow-sm sm:py-11">
-      <h2 className="mb-4 text-3xl font-semibold tracking-tight text-slate-900">
+    <section className="mx-auto max-w-6xl rounded-3xl border border-[var(--line)] bg-[var(--surface)] px-6 py-10 shadow-sm sm:py-11">
+      <h2 className="mb-4 text-3xl font-semibold tracking-tight text-[var(--text)]">
         {translations[language].techStack}
       </h2>
-      <p className="mb-8 max-w-3xl text-slate-600">
+      <p className="mb-8 max-w-3xl text-[var(--muted)]">
         {translations[language].description}
       </p>
 
@@ -46,7 +46,7 @@ export default function TechStack() {
         {tech.map((t) => (
           <div
             key={t.name}
-            className="group flex min-h-[7.75rem] flex-col items-center justify-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-sm"
+            className="group flex min-h-[7.75rem] flex-col items-center justify-center gap-3 rounded-xl border border-[var(--line)] bg-[var(--surface-raised)] p-3 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--surface)] hover:shadow-sm"
             title={t.name}
           >
             <Image
@@ -57,7 +57,7 @@ export default function TechStack() {
               className="object-contain transition-transform duration-200 group-hover:scale-105"
             />
 
-            <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-2.5 py-0.5 text-[11px] font-medium tracking-[0.02em] text-slate-700">
+            <span className="inline-flex items-center rounded-full border border-[var(--line)] bg-[var(--bg)] px-2.5 py-0.5 text-[11px] font-medium tracking-[0.02em] text-[var(--text)]">
               {t.name}
             </span>
           </div>

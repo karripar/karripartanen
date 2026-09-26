@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import "keen-slider/keen-slider.min.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeScript } from "@/scripts/ThemeScript";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

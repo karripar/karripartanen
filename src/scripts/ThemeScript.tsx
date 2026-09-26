@@ -1,21 +1,19 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export function ThemeScript() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const storedTheme = localStorage.getItem("theme");
+    const resolvedTheme = storedTheme === "light" ? "light" : "dark";
 
-    const isDark = storedTheme === 'dark' || (!storedTheme && prefersDark);
-    document.documentElement.classList.toggle('dark', isDark);
-
+    document.documentElement.dataset.theme = resolvedTheme;
+    document.documentElement.classList.toggle("dark", resolvedTheme === "dark");
     setMounted(true);
   }, []);
 
-  // Don't render children until the theme is applied
   if (!mounted) return null;
 
   return null;

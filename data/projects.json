@@ -5,10 +5,10 @@
       "en": "ICT School Chatbot (Work in Progress)",
       "fi": "ICT School Chatbot (työn alla)"
     },
-    "solo": true,
+    "solo": false,
     "description": {
-      "en": "A full-stack AI assistant platform that uses Retrieval-Augmented Generation (RAG) to provide context-aware answers from organization-specific knowledge sources. Built with a microservice architecture, the platform supports secure multi-tenant deployments, allowing multiple frontends to share the same backend while maintaining strict data isolation.",
-      "fi": "Full-stack AI-avustaja-alusta, joka hyödyntää Retrieval-Augmented Generation (RAG) -mallia tarjotakseen kontekstuaalisia vastauksia organisaatiokohtaisista tietolähteistä. Mikropalveluarkkitehtuuriin rakennettu alusta tukee turvallisia monivuokraympäristöjä, joissa useat frontendit voivat käyttää samaa backendiä säilyttäen tiukan datan eriytyksen."
+      "en": "A full-stack AI assistant platform built with a team, utilizing Retrieval-Augmented Generation (RAG) to deliver accurate, context-aware answers from organization-specific knowledge bases. Designed around a scalable microservice architecture supporting secure multi-tenant deployments, allowing multiple frontends to query a centralized backend while maintaining strict tenant data isolation. My primary responsibilities included designing the service architecture, implementing the end-to-end RAG and embedding pipeline, and managing containerized Linux server deployments.",
+      "fi": "Tiimiprojektina toteutettu full-stack AI-avustaja-alusta, joka hyödyntää Retrieval-Augmented Generation (RAG) -mallia tarjotakseen tarkkoja ja kontekstuaalisia vastauksia organisaatiokohtaisista tietolähteistä. Mikropalveluarkkitehtuuriin pohjautuva alusta tukee suojattuja moniasiakasympäristöjä (multi-tenancy), jolloin eri frontendit voivat hyödyntää keskitettyä taustajärjestelmää tiukan tietoturvan ja datan eristyksen puitteissa. Päävastuisiini kuuluivat palveluarkkitehtuurin suunnittelu, RAG- ja upotusputken toteutus sekä kontitetun Linux-palvelinympäristön pystytys ja ylläpito."
     },
     "features": [
       "Retrieval-Augmented Generation (RAG)",
@@ -48,18 +48,18 @@
     },
     "highlights": {
       "en": [
-        "Designed and implemented, together with my team, a production-style microservice architecture",
-        "Built a complete RAG pipeline for knowledge retrieval",
-        "Implemented secure tenant-based access control",
-        "Created server-side API proxying with authenticated service communication",
-        "Deployed and maintained the platform on a Linux virtual machine"
+        "Co-designed the microservice architecture and was responsible for the technical implementation of core functionalities",
+        "Built the end-to-end RAG pipeline, document chunking, and PGVector similarity search",
+        "Implemented robust tenant-based data isolation and HMAC service-to-service authentication",
+        "Engineered server-side API routing and reverse proxy setup for secure communication",
+        "Configured and maintained containerized production deployments on a Linux virtual machine"
       ],
       "fi": [
-        "Suunnittelin ja toteutin yhdessä ryhmäni kanssa tuotantotyylisen mikropalveluarkkitehtuurin",
-        "Rakensin kokonaisen RAG-putken tiedonhakuun ",
-        "Toteutin turvallisen tenant-pohjaisen käyttöoikeuksien hallinnan",
-        "Rakensin palvelinpuolen API-reitityksen autentikoidulla palveluviestinnällä",
-        "Julkaisin ja ylläpidän alustaa Linux-virtuaalikoneessa"
+        "Suunnittelin mikropalveluarkkitehtuurin ja olin vastuussa keskeisten toiminnallisuuksien teknisestä toteutuksesta",
+        "Rakensin kokonaisen RAG-putken, dokumenttien palastelun sekä PGVector-pohjaisen samankaltaisuushaun",
+        "Toteutin luotettavan tenant-pohjaisen tietojen eristyksen ja palveluiden välisen HMAC-autentikoinnin",
+        "Rakensin palvelinpuolen API-reitityksen ja reverse proxy -konfiguraation turvallista tiedonsiirtoa varten",
+        "Pystytin ja ylläpidin kontitettua tuotantoympäristöä Linux-virtuaalikoneella"
       ]
     },
     "url": "",
@@ -73,8 +73,8 @@
     },
     "solo": false,
     "description": {
-      "en": "A full-stack web application that connects students interested in exchange programs with students who have already participated in them. Users can create profiles, share experiences, find potential exchange partners, and access important information about the application process and available support. An OpenAI-powered AI chat was integrated to improve the user experience. Instead of relying on OpenAI's vector store, the project uses a custom Milvus-based vector database for storing and retrieving exchange-related documentation. I was responsible for implementing the vector database and document retrieval functionality alongside other development tasks.",
-      "fi": "Full-stack verkkosovellus, joka yhdistää vaihto-ohjelmista kiinnostuneet opiskelijat niihin jo osallistuneisiin opiskelijoihin. Käyttäjät voivat luoda profiileja, jakaa kokemuksia, löytää mahdollisia vaihtopareja ja saada tietoa hakuprosessista sekä saatavilla olevasta tuesta. Käyttökokemusta parantamaan integroitiin OpenAI-pohjainen AI-chat. OpenAI:n vector storen sijaan projekti käyttää räätälöityä Milvus-pohjaista vektorikantaa vaihtoon liittyvien dokumenttien tallennukseen ja hakuun. Vastasin vektorikannan sekä dokumenttien hakutoiminnallisuuden toteutuksesta muiden kehitystehtävien ohella."
+      "en": "A full-stack web platform connecting prospective exchange students with alumni and peers to share experiences, discover exchange destinations, and navigate the application process. An OpenAI-powered intelligent assistant provides real-time guidance using exchange documentation. In this team project, I acted as both a developer and part-time project manager, taking end-to-end ownership of delivery, sprint coordination, and the custom Milvus vector database implementation for semantic retrieval instead of off-the-shelf vector stores.",
+      "fi": "Full-stack-verkkopalvelu, joka yhdistää vaihto-opinnoista kiinnostuneet opiskelijat aiemmin vaihdossa olleisiin vertaistuen, kokemusten jakamisen ja hakuprosessin helpottamiseksi. Palveluun integroitu älykäs AI-avustaja opastaa hakijoita hyödyntäen virallisia vaihtodokumentaatioita. Toimin projektissa kehittäjänä sekä osa-aikaisena projektipäällikkönä vastaten työn koordinoinnista, tuotantoon viennistä sekä räätälöidyn Milvus-vektoritietokannan ja semanttisen tiedonhaun toteutuksesta valmiiden pilviratkaisujen sijaan."
     },
     "features": [
       "Student profile management",
@@ -107,18 +107,18 @@
     },
     "highlights": {
       "en": [
-        "Developed a full-stack exchange student platform as part of a team",
-        "Implemented a custom Milvus-based vector database instead of using OpenAI's vector store",
-        "Built document embedding and semantic retrieval functionality for the AI chat",
-        "Integrated OpenAI-powered conversational functionality",
-        "Worked across frontend, backend, database, and AI-related components"
+        "Acted as developer and part-time project manager, coordinating sprint work and guiding the project from concept to launch",
+        "Engineered a dedicated Milvus vector database and retrieval service tailored for custom exchange documentation",
+        "Developed document chunking, embedding generation, and semantic query matching for the OpenAI chat assistant",
+        "Contributed across the full stack including React/Next.js frontend views, Node.js API endpoints, and MongoDB schemas",
+        "Ensured seamless communication between the client, backend, vector store, and external AI models"
       ],
       "fi": [
-        "Kehitin tiimin osana full-stack vaihto-opiskelija-alustan",
-        "Toteutin räätälöidyn Milvus-pohjaisen vektorikannan OpenAI:n vector storen sijaan",
-        "Rakensin AI-chatille dokumenttien upotuksen ja semanttisen haun toiminnallisuudet",
-        "Integroin OpenAI-pohjaisen keskustelutoiminnallisuuden",
-        "Työskentelin frontendin, backendin, tietokannan ja AI-komponenttien parissa"
+        "Toimin kehittäjänä ja osa-aikaisena projektimanagerina koordinoiden tiimin työtä konseptista julkaisuun",
+        "Toteutin räätälöidyn Milvus-vektorikannan ja hakupalvelun vaihtodokumentaation hallintaan",
+        "Kehitin dokumenttien palastelun, upotusten luonnin ja semanttisen haun OpenAI-keskusteluavustajalle",
+        "Kehitin ratkaisua läpi koko stackin: React/Next.js-käyttöliittymät, Node.js-rajapinnat ja MongoDB-tietomallit",
+        "Vastasin sujuvasta ja luotettavasta integraatiosta käyttöliittymän, taustajärjestelmän, vektorikannan ja tekoälymallien välillä"
       ]
     },
     "url": "https://github.com/karripar/go-exchange-server",

@@ -118,7 +118,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
+    <main className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
       <Navigation />
 
       {/* ================= HERO ================= */}
@@ -155,24 +155,24 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.28, ease: "easeOut" }}
-          className="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm sm:p-10"
+          className="rounded-3xl border border-[var(--line)] bg-[var(--surface)] p-8 text-center shadow-sm sm:p-10"
         >
-          <span className="mb-3 inline-flex rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
+          <span className="mb-3 inline-flex rounded-full border border-[var(--line)] bg-[var(--surface-raised)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
             {language === "fi" ? "Yhteydenotto" : "Contact"}
           </span>
 
-          <h2 className="mb-3 text-3xl font-semibold tracking-tight text-slate-900">
+          <h2 className="mb-3 text-3xl font-semibold tracking-tight text-[var(--text)]">
             {textContent.contactMe[language]}
           </h2>
 
-          <p className="mx-auto mb-7 max-w-2xl text-slate-600">
+          <p className="mx-auto mb-7 max-w-2xl text-[var(--muted)]">
             {textContent.contactText[language]}
           </p>
 
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href={`mailto:${email}`}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-900 bg-slate-900 px-6 py-3 font-medium !text-white transition-colors duration-200 hover:bg-slate-800"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--line-strong)] bg-[var(--accent)] px-6 py-3 font-medium !text-[var(--accent-ink)] transition-colors duration-200 hover:opacity-90"
             >
               <Mail size={18} />
               {textContent.emailButton[language]}
@@ -181,7 +181,7 @@ export default function Home() {
             <button
               type="button"
               onClick={copyEmail}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-medium text-slate-700 transition-colors duration-200 hover:bg-slate-100"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--surface-raised)] px-6 py-3 font-medium text-[var(--text)] transition-colors duration-200 hover:bg-[var(--surface)]"
             >
               {emailCopied ? <Check size={18} /> : <Copy size={18} />}
               {emailCopied

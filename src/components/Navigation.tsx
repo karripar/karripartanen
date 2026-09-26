@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Image from "next/image";
-import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const { language, toggleLanguage } = useLanguage();
-  const oppositeLang = language === "fi" ? "en" : "fi";
 
   const labels = {
     about: language === "en" ? "About" : "Minusta",
@@ -21,41 +19,39 @@ const Navigation = () => {
     email: language === "en" ? "Email" : "Sähköposti",
   };
 
-  /* ----------------------------- effects ----------------------------- */
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    const resolvedTheme = storedTheme === "light" ? "light" : "dark";
+    setTheme(resolvedTheme);
+    document.documentElement.dataset.theme = resolvedTheme;
+  }, []);
 
   useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.classList.toggle("menu-open", isOpen);
     document.body.style.overflow = isOpen ? "hidden" : "";
+
     return () => {
-      document.body.style.overflow = "";
+      document.body.classList.remove("menu-open");
+      document.body.style.overflow = previousOverflow;
     };
   }, [isOpen]);
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+    const handler = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
         setIsOpen(false);
       }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, []);
-
-  /* ----------------------------- animations ----------------------------- */
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: 10 },
-    visible: (i: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: { delay: i * 0.04, duration: 0.18 },
-    }),
-  };
-
-  const iconClass =
-    "relative rounded-full p-2 text-slate-800 hover:bg-slate-100 transition-colors duration-200";
-
-  const navLinkClass =
-    "text-sm font-medium text-slate-600 transition-colors duration-200 hover:text-slate-900";
 
   const navItems = [
     { label: labels.about, href: "#about" },
@@ -76,184 +72,130 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
-  /* ----------------------------- render ----------------------------- */
-
   return (
     <>
-      {/* ================= NAVBAR ================= */}
-      <motion.nav
-        className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur"
+      <motion.header
+        className="site-header"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.22, ease: "easeOut" }}
       >
-        <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6">
-          <a
-            href="#"
-            className="text-sm font-semibold tracking-[0.14em] text-slate-900 uppercase"
+        <a href="#top" className="wordmark" aria-label="Homepage">
+          <span className="mark-bracket">[</span>KP
+          <span className="mark-bracket">]</span>
+        </a>
+
+        <nav className="main-nav desktop-nav" aria-label="Main navigation">
+          {navItems.map((item, index) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(event) => {
+                event.preventDefault();
+                navigateTo(item.href);
+              }}
+            >
+              <span>0{index + 1}</span>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="header-actions">
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            className="language-toggle"
+            aria-label={
+              language === "en"
+                ? "Switch language to Finnish"
+                : "Switch language to English"
+            }
           >
-            KP
+            <span className={language === "en" ? "active" : ""}>EN</span>
+            <i />
+            <span className={language === "fi" ? "active" : ""}>FI</span>
+          </button>
+
+          <a
+            href="https://github.com/karripar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon-button"
+            aria-label="GitHub"
+          >
+            <FaGithub />
           </a>
 
-          <div className="hidden items-center gap-5 md:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={navLinkClass}
-                onClick={(event) => {
-                  event.preventDefault();
-                  navigateTo(item.href);
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-
-          <div className="hidden items-center space-x-1 md:flex">
-            <motion.a
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              href="https://github.com/karripar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={iconClass}
-              aria-label="GitHub"
-            >
-              <FaGithub className="text-2xl text-gray-700" />
-            </motion.a>
-
-            <motion.a
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              href="https://www.linkedin.com/in/karri-partanen-39768b165/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={iconClass}
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin className="text-2xl text-sky-700" />
-            </motion.a>
-
-            <motion.a
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              href="mailto:karri.t.partanen@gmail.com"
-              className={iconClass}
-              aria-label="Email"
-            >
-              <FaEnvelope className="text-2xl text-gray-700" />
-            </motion.a>
-          </div>
-
-          {/* Right utilities */}
-          <div className="absolute right-5 flex items-center space-x-2 md:static md:ml-2">
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={toggleLanguage}
-              className="rounded-full border border-slate-200 bg-white p-1 shadow-sm"
-              aria-label="Toggle language"
-            >
-              <Image
-                src={`/img/${oppositeLang}.png`}
-                alt="language toggle"
-                width={28}
-                height={14}
-              />
-            </motion.button>
-
-            {/* Mobile menu */}
-            <button
-              onClick={() => setIsOpen(true)}
-              className="md:hidden rounded-full p-2 text-slate-800 transition-colors duration-150 hover:bg-slate-100"
-              aria-label="Open menu"
-            >
-              <Menu />
-            </button>
-          </div>
-        </div>
-      </motion.nav>
-
-      {/* ================= MOBILE BACKDROP ================= */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
-            onClick={() => setIsOpen(false)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.12 }}
-          />
-        )}
-      </AnimatePresence>
-
-      {/* ================= MOBILE DRAWER ================= */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="fixed top-0 right-0 z-50 flex h-full w-72 flex-col space-y-5 border-l border-slate-200 bg-white p-6 text-slate-900"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.16, ease: "easeOut" }}
+          <a
+            href="https://www.linkedin.com/in/karri-partanen-39768b165/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon-button"
+            aria-label="LinkedIn"
           >
-            <button className="self-end" onClick={() => setIsOpen(false)}>
-              <X />
-            </button>
+            <FaLinkedin />
+          </a>
 
-            <div className="space-y-2 border-b border-slate-200 pb-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    navigateTo(item.href);
-                  }}
-                  className="block rounded-lg px-2 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
+          <a
+            href="mailto:karri.t.partanen@gmail.com"
+            className="icon-button"
+            aria-label="Email"
+          >
+            <FaEnvelope />
+          </a>
 
-            {[
-              {
-                icon: <FaGithub />,
-                label: labels.github,
-                href: "https://github.com/karripar",
-              },
-              {
-                icon: <FaLinkedin />,
-                label: labels.linkedin,
-                href: "https://www.linkedin.com/in/karri-partanen-39768b165/",
-              },
-              {
-                icon: <FaEnvelope />,
-                label: labels.email,
-                href: "mailto:karri.t.partanen@gmail.com",
-              },
-            ].map((item, i) => (
-              <motion.a
-                key={item.label}
-                custom={i}
-                variants={itemVariants}
-                initial="hidden"
-                animate="visible"
-                href={item.href}
-                className="flex items-center space-x-3 text-base"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.icon}
-                <span>{item.label}</span>
-              </motion.a>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <button
+            type="button"
+            className="icon-button menu-button"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X /> : <Menu />}
+          </button>
+
+          <button
+            type="button"
+            onClick={() =>
+              setTheme((currentTheme) =>
+                currentTheme === "dark" ? "light" : "dark",
+              )
+            }
+            className="icon-button"
+            aria-label={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
+          >
+            {theme === "dark" ? <Sun /> : <Moon />}
+          </button>
+        </div>
+      </motion.header>
+
+      <div
+        className={`mobile-nav-backdrop ${isOpen ? "is-open" : ""}`}
+        onClick={() => setIsOpen(false)}
+        aria-hidden="true"
+      />
+
+      <nav
+        className={`mobile-nav ${isOpen ? "is-open" : ""}`}
+        aria-label="Mobile navigation"
+      >
+        {navItems.map((item, index) => (
+          <a
+            key={item.href}
+            href={item.href}
+            onClick={(event) => {
+              event.preventDefault();
+              navigateTo(item.href);
+            }}
+          >
+            <span>0{index + 1}</span>
+            {item.label}
+          </a>
+        ))}
+      </nav>
     </>
   );
 };
